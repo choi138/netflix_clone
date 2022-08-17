@@ -29,7 +29,7 @@ height: 100vh;
 width: 100vw;
 justify-content: center;
 align-items: center;
-background-color: ${props => props.theme.backgorundColor};
+background-color: ${props => props.theme.bgColor};
 `;
 
 

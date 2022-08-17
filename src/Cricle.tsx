@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components"
 
 interface ContainerProps{
@@ -21,6 +21,8 @@ interface CircleProps { //interface는 object의 타입을 설명해준다.
 }
 
 function Circle({bgColor, borderColor, text = "defalut text"}: CircleProps){ //만약 text가 존재하지 않다면 defalut text 값을 넣어라
+    // const [value, setVlaue] = useState <number | string> (0); <number | string>이렇게 하면 string또는 number 타입이 된다.
+    const [value, SetValue] = useState(); // 아무 값도 넣어주지 않는다면 undefined라고 뜬다.
     return (
         <Container bgColor={bgColor} borderColor={borderColor ?? bgColor}>
             {text}
@@ -32,12 +34,12 @@ function Circle({bgColor, borderColor, text = "defalut text"}: CircleProps){ //�
 
 export default Circle;
 
-interface playerShape {
-    name: string;
-    age: number;
-}
+// interface playerShape {
+//     name: string;
+//     age: number;
+// }
 
-const sayHello = (playerObj:playerShape) => `Hello ${playerObj.name} you are ${playerObj.age} old.`
+// const sayHello = (playerObj:playerShape) => `Hello ${playerObj.name} you are ${playerObj.age} old.`
 
-sayHello({name:"justin", age:17})
-sayHello({name: "hi", age:12})
+// sayHello({name:"justin", age:17})
+// sayHello({name: "hi", age:12})

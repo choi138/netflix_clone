@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 
-function CountFn(){
+function Change(){
     const [value, setValue] = useState("");
     const [showing, setShowing] = useState(true)
     const onChange = (event: React.FormEvent<HTMLInputElement>) => {
@@ -39,4 +39,4 @@ function CountFn(){
 
 }
 
-export default CountFn;
+export default Change;

@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { ThemeProvider } from 'styled-components';
 import App from './App';
+import CountFn from './practice/count';
 import { darkTheme, lightTheme } from './theme';
 
 const root = ReactDOM.createRoot(
@@ -9,7 +10,7 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <ThemeProvider theme={darkTheme}>
-    <App />
+    <CountFn />
   </ThemeProvider>
 );
 

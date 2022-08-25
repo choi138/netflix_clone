@@ -1,5 +1,10 @@
 import React, { useState } from "react";
+import styled from "styled-components";
 
+const Container = styled.div`
+  background-color: ${(props) => props.theme.bgColor};
+  color: ${(props) => props.theme.textColor};
+`;
 
 function Change(){
     const [value, setValue] = useState("");
@@ -14,8 +19,15 @@ function Change(){
         event?.preventDefault();
         setShowing(false);
     }
+    const onClickFalse = () => {
+        setShowing(false);
+    }
+    const onClickTrue = () => {
+        setShowing(true);
+        setValue("")
+    } 
     return(
-    <div>
+    <Container>
         {showing ? (
         <form onSubmit={onSubmit}>
             <input
@@ -27,14 +39,9 @@ function Change(){
         </form>) : 
         (<h2>hello, {value}</h2>)
         }
-        <button onClick={() => {
-            setShowing(false);
-        }}>show</button>
-        <button onClick={() => {
-            setShowing(true);
-            setValue("")
-        }}>hide</button>
-    </div>
+        <button onClick={onClickFalse}>show</button>
+        <button onClick={onClickTrue}>hide</button>
+    </Container>
     )
 
 }

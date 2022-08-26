@@ -62,6 +62,7 @@ body{
 }
 a{
   text-decoration: none;
+  color: inherit; //inherit는 부모의 속성을 가져온다.
 }
 `;
 

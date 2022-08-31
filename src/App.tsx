@@ -1,6 +1,20 @@
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Header from "./Components/Header";
+import Home from "./Routes/Home";
+import Search from "./Routes/Search";
+import Tv from "./Routes/Tv";
+
+
 function App(){
     return (
-        null
+        <Router>
+            <Header/>
+            <Routes>
+                <Route path="/tv" element={<Tv/>}/>  {/* TV프로그램들을 위한 라우트*/}
+                <Route path="/search" element={<Search/>}/>  {/*검색을 위한 라우트*/}
+                <Route path="/" element={<Home/>}/>  {/*영화들을 보여줄 home라우트*/}
+            </Routes>
+        </Router>
     );
 }
 

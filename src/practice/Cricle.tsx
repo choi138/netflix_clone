@@ -9,9 +9,7 @@ interface ContainerProps{
 const Container = styled.div<ContainerProps>`
     width: 200px;
     height: 200px;
-    background-color: ${(props) => props.bgColor};
     border-radius: 100px;
-    border: 1px solid ${(props) => props.borderColor};
 `;
 
 interface CircleProps { //interface는 object의 타입을 설명해준다.

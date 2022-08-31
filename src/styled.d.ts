@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import "styled-components";
 
  declare module "styled-components" {
@@ -16,7 +15,6 @@ import "styled-components";
      };
    }
  } 
-=======
 import 'styled-components';
 
 declare module 'styled-components'{
@@ -26,4 +24,3 @@ declare module 'styled-components'{
         accentColor: string;
     }
 }
->>>>>>> b26985a (asdf)

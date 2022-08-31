@@ -2,15 +2,8 @@ import React, { useState } from "react";
 import styled from "styled-components";
 
 const Container = styled.div`
-<<<<<<< HEAD
 `;
 const H1 = styled.h1`
-=======
-  background-color: ${(props) => props.theme.bgColor};
-`;
-const H1 = styled.h1`
-  color: ${(props) => props.theme.textColor};
->>>>>>> b26985a (asdf)
 `;
 
 interface DummyProps {

@@ -17,6 +17,10 @@ import styled from "styled-components";
 // attrs({})를 통해서 속성을 정해줄 수 있다. 예(attrs({required: true, minLength: 10}))
 
 const Title = styled.h1`
+<<<<<<< HEAD
+=======
+  color: ${props => props.theme.textColor};
+>>>>>>> b26985a (asdf)
   &:hover{
     color: teal;
   }
@@ -28,6 +32,10 @@ height: 100vh;
 width: 100vw;
 justify-content: center;
 align-items: center;
+<<<<<<< HEAD
+=======
+background-color: ${props => props.theme.bgColor};
+>>>>>>> b26985a (asdf)
 `;
 
 

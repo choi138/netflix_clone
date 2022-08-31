@@ -2,6 +2,11 @@ import React, { useState } from "react";
 import styled from "styled-components";
 
 const Container = styled.div`
+<<<<<<< HEAD
+=======
+  background-color: ${(props) => props.theme.bgColor};
+  color: ${(props) => props.theme.textColor};
+>>>>>>> b26985a (asdf)
 `;
 
 function Change(){

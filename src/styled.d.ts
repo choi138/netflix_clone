@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import "styled-components";
 
  declare module "styled-components" {
@@ -15,3 +16,14 @@ import "styled-components";
      };
    }
  } 
+=======
+import 'styled-components';
+
+declare module 'styled-components'{
+    export interface DefaultTheme{
+        textColor: string;
+        bgColor: string;
+        accentColor: string;
+    }
+}
+>>>>>>> b26985a (asdf)

@@ -46,6 +46,7 @@
   },
   "devDependencies": {
     "@types/react": "^18.0.17",
+    "@types/recoil": "^0.0.9",
     "@types/styled-components": "^5.1.26"
   }
 }

@@ -86,7 +86,7 @@ function Header(){
     const [searchOpen, setSearchOpen] = useState(false);
     const homeMatch =  useMatch('/'); // useMatch는 현재 경로가 특정 경로와 일치하는지 여부를 반환한다.
     const tvMatch =  useMatch('tv'); 
-    // console.log(homeMatch, tvMatch); 경로 파악 가능
+    // console.log(homeMatch, tvMatch); // 경로 파악 가능
     const openSearch = () => {setSearchOpen(true)};
     return(
         <Nav>

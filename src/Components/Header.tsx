@@ -5,14 +5,13 @@ import { motion, useAnimation, useScroll } from "framer-motion";
 import { Link, useMatch } from "react-router-dom";
 import { useEffect, useState } from "react";
 
-const Nav = styled.nav` // nav는 UI전환. Fragment 트랜잭션 관리, 딥링크 구현 및 처리, 안전한 데이터 전달 등 다양한 기능을 제공하고 있다.
+const Nav = styled(motion.nav)` // nav는 UI전환. Fragment 트랜잭션 관리, 딥링크 구현 및 처리, 안전한 데이터 전달 등 다양한 기능을 제공하고 있다.
     display: flex;
     justify-content: space-between;
     align-items: center;
     position: fixed;
     width: 100%;
     top: 0;
-    background-color: black;
     height: 80px;
     font-size: 12px;
 `;
@@ -105,16 +104,26 @@ const StyledLink = styled(Link)`
   text-decoration: none;
 `;
   
+const navVariants = {
+    top:{
+        backgroundColor: 'rgba(0,0,0,0)'
+    },
+    scroll:{
+        backgroundColor: 'rgba(0,0,0,1)'
+    }
+}
 
 function Header(){
     const [searchOpen, setSearchOpen] = useState(false);
     const homeMatch =  useMatch('/'); // useMatch는 현재 경로가 특정 경로와 일치하는지 여부를 반환한다.
     const tvMatch =  useMatch('tv'); 
+    const navAnimation = useAnimation();
     // console.log(homeMatch, tvMatch); // 경로 파악 가능
     const inputAnimation = useAnimation();
     const{scrollY} = useScroll(); 
     //useScroll는 두가지 값을 반환한다. 첫번째는 x,y에 대하 스크롤 진행도를 0에서 1사이의 값으로 알 수 있다. 이 값은 끝에서부터 얼마나 떨어져있는지를 0퍼센트부터 100퍼센트 사이의 값으로 나타내준다.
     // 두번째는 얼머나 멀리 이동했는지 픽셀 단위로 나타내는 것이다. 
+    // const toggleSearch = () => setSearchOpen(!searchOpen);
     const toggleSearch = () => { 
         // 코드로부터 애니메이션을 실행시키고 있다. 애니메이션을 실행시키는 또 하나의 방법이다. 
         // 애니메이션을 동시에 실행시키고 싶을때 유용하고 중요하다. 
@@ -132,10 +141,21 @@ function Header(){
         setSearchOpen((prev) => !prev)
     };
     useEffect(() => {
-        
-    },[])
+        scrollY.onChange(() => {
+            if(scrollY.get() > 80){
+                navAnimation.start("scroll");
+            } else{
+                navAnimation.start("top");
+            }
+        });
+    },[scrollY, navAnimation]);
     return(
-        <Nav>
+        <Nav 
+        variants={navVariants} // variants는 애니메이션을 정의하는 객체이다.
+        // animate={{backgroundColor: scrollY.get()>80 ? 'rgba(0,0,0,0)' : 'rgba(0,0,0,1)'}} // animate는 애니메이션을 실행시키는 객체이다.
+        animate={navAnimation} // animate는 애니메이션을 실행시키는 것이다.
+        initial={"top"} //initial은 애니메이션이 시작되기 전의 상태 즉 초기값.
+        >
             <Col>
                 <Logo
                     variants={logoVariants}
@@ -174,7 +194,9 @@ function Header(){
                     ></path>
                     </motion.svg>
                     <Input 
-                        animate={inputAnimation}
+                        animate={inputAnimation} // 이 방법은 애니메이션을 실행시키는 또 하나의 방법이다.
+                        // animate={{scaleX: searchOpen ? 1 : 0}} 
+                        // searchOpen가 참일때 x축으로 100만큼 이동 아니면 -0으로 설정 이 방법은 애니메이션을 실행시키는 기본적인 방법이다.
                         initial={{scaleX: 0}}
                         transition={{type:"linear"}}
                         placeholder="Search for movie or tv show"

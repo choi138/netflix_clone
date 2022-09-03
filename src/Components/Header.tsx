@@ -144,8 +144,14 @@ function Header(){
         scrollY.onChange(() => {
             if(scrollY.get() > 80){
                 navAnimation.start("scroll");
+                // navAnimation.start({
+                //      backgroundColor: "rgba(0, 0, 0, 1)",
+                // })
             } else{
                 navAnimation.start("top");
+                // navAnimation.start({
+                //     backgroundColor: "rgba(0, 0, 0, 0)",
+                // })
             }
         });
     },[scrollY, navAnimation]);

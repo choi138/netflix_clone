@@ -1,7 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import {createGlobalStyle } from 'styled-components'
 import Header from "./Components/Header";
-import Home from "./Routes/Home";
+import Home from "./Routes/Home/Home";
 import Search from "./Routes/Search";
 import Tv from "./Routes/Tv";
 

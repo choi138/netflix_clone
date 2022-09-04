@@ -33,21 +33,23 @@ export const Overview = styled.p`
   width: 50%;
 `;
 
-export const Slider = styled(motion.div)`
+export const Slider = styled.div`
   position: relative;
 `;
 
 export const Row = styled(motion.div)`
   display: grid; // display: grid를 사용해서 박스들을 정렬해준다.
-  gap: 10px; // 박스들 사이의 간격을 조절해준다.
+  gap: 5px; // 박스들 사이의 간격을 조절해준다.
   grid-template-columns: repeat(6, 1fr); // 6개의 박스를 가로로 정렬해준다.
   position: absolute;
   width: 100%;
 `;
 
-export const Box = styled(motion.div)`
+export const Box = styled(motion.div)<{ bgPhoto: string}>`
   background-color: white;
   height: 200px;
-  color: red;
+  background-image: url(${(props) => props.bgPhoto});
+  background-size: cover;
+  background-position: center center;
   font-size: 64px;
 `;

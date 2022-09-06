@@ -62,7 +62,7 @@ function Home() {
       const totalMovies = data.results.length - 1; // Banner에서 하나를 사용하고 있기때문에 하나를 빼줌.
       const maxIndex = Math.floor(totalMovies / offset) -1; // api의 자료 개수를 6으로 나눈다.
      // Math.ceil은 소수점을 내림한다. 영화가 얼마나 될지 모르기때문. page가 0에서 시작하기때문에 -1을 해준다.
-      setIndex((prev) => prev === maxIndex ? 0 : prev + 1);
+      setIndex((prev) => prev === maxIndex ? 0 : prev + 1); // index가 maxIndex와 같으면 0으로 바꾸고 아니면 1을 더한다.
     }
   };
   const toggleLeaving = () => setLeaving(false);

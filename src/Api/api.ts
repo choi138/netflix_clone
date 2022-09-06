@@ -1,7 +1,7 @@
 const API_KEY = "3e354f52d83220768ad48a5e6ab5121b"
 const BASE_PATH = "https://api.themoviedb.org/3"
 
-interface IMovie { // 영화 +@TV 인터페이스
+export interface IMovie { // 영화 +@TV 인터페이스
     backdrop_path: string; // 백그라운드 이미지
     poster_path: string; // 포스터 이미지
     genre_ids: [number]; // 장르 아이디

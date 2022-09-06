@@ -35,6 +35,7 @@ export const Overview = styled.p`
 
 export const Slider = styled.div`
   position: relative;
+  top: -100px;
 `;
 
 export const Row = styled(motion.div)`
@@ -47,9 +48,28 @@ export const Row = styled(motion.div)`
 
 export const Box = styled(motion.div)<{ bgPhoto: string}>`
   background-color: white;
-  height: 200px;
   background-image: url(${(props) => props.bgPhoto});
   background-size: cover;
   background-position: center center;
-  font-size: 64px;
+  height: 200px;
+  font-size: 66px;
+  &:first-child {
+    transform-origin: center left; // 첫번째 박스의 원점을 왼쪽으로 옮겨준다.
+  }
+  &:last-child {
+    transform-origin: center right; // 마지막 박스의 원점을 오른쪽으로 옮겨준다.
+  }
+`;
+
+export const Info = styled(motion.div)`
+  padding: 10px;
+  background-color: ${props => props.theme.black.lighter};
+  opacity: 0 ; // 처음에는 투명하게 만들어준다.
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  h4{
+    text-align: center;
+    font-size: 18px;
+  }
 `;

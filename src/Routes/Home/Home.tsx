@@ -21,6 +21,32 @@ const rowVariants = {
 
 const offset = 6;
 
+const boxVariants = {
+  normal: {
+    scale: 1,
+  },
+  hover: {
+    scale: 1.3,
+    y:-50,
+    transition: { 
+      delay: 0.5, // 0.5초 뒤에 실행된다.
+      duaration: 0.3, // 0.3초 동안 실행된다.
+      type: "tween", // tween은 애니메이션의 종류를 의미한다.
+    },
+  },
+};
+
+const infoVariants = {
+  hover: {
+    opacity: 1,
+    transition: { 
+      delay: 0.5, // 0.5초 뒤에 실행된다.
+      duaration: 0.3, // 0.3초 동안 실행된다.
+      type: "tween", // tween은 애니메이션의 종류를 의미한다.
+    },
+  },
+}
+
 function Home() {
   const {data, isLoading} = useQuery<IGetMoviesResult>(
     ["movies", "nowplaying"], 
@@ -73,7 +99,16 @@ function Home() {
             .map((movie) => (
               <S.Box 
               key={movie.id}
-              bgPhoto={makeImagePath(movie.backdrop_path, "w500")}/>
+              whileHover="hover"
+              initial="normal"
+              variants={boxVariants}
+              transition={{type:"tween"}}
+              bgPhoto={makeImagePath(movie.backdrop_path, "w500")}
+              >
+                <S.Info variants={infoVariants}>
+                <h4>{movie.title}</h4>
+                </S.Info>
+              </S.Box >
             ))}
           </S.Row>
           </AnimatePresence>

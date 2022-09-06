@@ -1,8 +1,8 @@
 import { useQuery } from "react-query";
-import { getMovies, IGetMoviesResult } from "../../api";
+import { getNowPlayingMovies, IGetMoviesResult } from "../../api";
 import { makeImagePath } from "../../utilities"; 
 import * as S from "./HomeStyle";
-import { motion, AnimatePresence, useScroll } from "framer-motion";
+import { AnimatePresence } from "framer-motion";
 import { useState } from "react";
 // AnimatePresence는 컴포넌트가 render되거나 destory될때 효과를 줄 수 있다.
 
@@ -50,7 +50,7 @@ const infoVariants = {
 function Home() {
   const {data, isLoading} = useQuery<IGetMoviesResult>(
     ["movies", "nowplaying"], 
-    getMovies
+    getNowPlayingMovies
     ); // useQuery는 data랑 아직 로딩중인지9isLoading)을 알려준다.
   // console.log(data, isLoading);
   const [index, setIndex] = useState(0);

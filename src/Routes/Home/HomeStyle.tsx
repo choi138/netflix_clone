@@ -3,9 +3,15 @@ import { motion, AnimatePresence, useScroll } from "framer-motion";
 // AnimatePresence는 컴포넌트가 render되거나 destory될때 효과를 줄 수 있다.
 
 export const Wrapper = styled.div`
-  overflow-x: hidden;
-  background-color: #141414;
+  /* overflow-x: hidden; */
+  background-color: #101820;
+  height: 100vh;
 `;
+
+export const Container = styled.div`
+  height: 30px;
+  background-color: #1a7a4c;
+`
 
 // export const Wrapper = styled.div`
 //   background-color: black;

@@ -1,7 +1,8 @@
 /**Page Title */
 import { Helmet } from "react-helmet"; // Helmet은 웹사이트의 title을 바꿔주는 역할을 한다.
 /* To get data */
-import { useQuery } from "react-query";
+import { useQuery } from "react-query"; 
+import { useMatch } from "react-router-dom"; // useMatch는 현재 url의 path를 가져온다.
 import { 
   IGetMoviesResult,
   getDetail,
@@ -27,13 +28,44 @@ import {Link} from "react-router-dom";
 import * as S from "./HomeStyle";
 
 
-function Home() {
-  const part = "/:part";
-  const id = "/:id";
-  const sliderPart = "/:sliderPart";
+function Home(){
+  const id = useMatch("/:id")?.params.id; // 현재 url의 path인 id를 가져온다.
+  const part = useMatch("/:part")?.params.part;
+  const sliderPart = useMatch("/:sliderPart")?.params.sliderPart;
+
+  // 영화
+  // 현재 상영중인 영화
+  const { data: nowPlayingMovies, isLoading: playingLoading } = // nowPlayingMovies는 getNowPlayingMovies의 data를 받아온다.
+  useQuery<IGetMoviesResult>(["nowPlaying", "movie"], getNowPlayingMovies); 
+  // 인기 영화
+  const { data: topRatedMovies, isLoading: topRatedLoading } = // topRatedMovies는 getTopRatedMovies의 data를 받아온다.
+  useQuery<IGetMoviesResult>(["topRated", "movie"], getTopRatedMovies);
+  // 개봉 예정 영화
+  const { data: upcomingMovies, isLoading: upcomingLoading } = // upcomingMovies는 getUpcomingMovies의 data를 받아온다.
+  useQuery<IGetMoviesResult>(["upcoming", "movie"], getUpcomingMovies);
+
+  //Tv
+  // 현재 방영중인 Tv
+  const { data: tvAiring, isLoading: tvAiringLoading } = // tvAiring는 getTvAiring의 data를 받아온다.
+  useQuery<IGetMoviesResult>(["tvAiring", "tv"], getTvAiring);
+  // 인기 Tv
+  const { data: tvPopular, isLoading: tvPopularLoading } = // tvPopular는 getTvPopular의 data를 받아온다.
+  useQuery<IGetMoviesResult>(["tvPopular", "tv"], getTvPopular);
+  // 인기 Tv
+  const { data: tvTopRated, isLoading: tvTopRatedLoading } = // tvTopRated는 getTvTopRated의 data를 받아온다.
+  useQuery<IGetMoviesResult>(["tvTopRated", "tv"], getTvTopRated);
+
+  const isLoading = playingLoading || topRatedLoading || upcomingLoading || tvAiringLoading || tvPopularLoading || tvTopRatedLoading; 
+  // isLoading은 현재 상영중인 영화, 인기 영화, 개봉 예정 영화, 현재 방영중인 Tv, 인기 Tv가 모두 로딩이 끝나야 false가 된다.
+
+  const {data: movieDetail} = useQuery(["movie", id], () =>
+  getDetail(part, id || "") 
+  );
   return(
     <S.Wrapper>
-
+      <Helmet>
+        <title>Home</title> 
+      </Helmet>
     </S.Wrapper>
   )
   }

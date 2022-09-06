@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import  {RecoilRoot}  from "recoil";
 import { createGlobalStyle, ThemeProvider } from 'styled-components';
 import App from './App';
-import { theme } from './theme';
+import { theme } from './Style/theme';
 import {QueryClient, QueryClientProvider} from "react-query";
 
 const GlobalStyle = createGlobalStyle`

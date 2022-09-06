@@ -1,6 +1,11 @@
+/**Page Title */
+import { Helmet } from "react-helmet"; // Helmet은 웹사이트의 title을 바꿔주는 역할을 한다.
 import { useQuery } from "react-query";
-import { getNowPlayingMovies, IGetMoviesResult } from "../../api";
-import { makeImagePath } from "../../utilities"; 
+import { 
+  getNowPlayingMovies, 
+  IGetMoviesResult,
+ } from "../../Api/api";
+import { makeImagePath } from "../../Api/utilities"; 
 import * as S from "./HomeStyle";
 import { AnimatePresence } from "framer-motion";
 import { useState } from "react";

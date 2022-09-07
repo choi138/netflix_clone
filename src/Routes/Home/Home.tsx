@@ -29,9 +29,24 @@ import * as S from "./HomeStyle";
 
 
 function Home(){
-  const id = useMatch("/:id")?.params.id; // 현재 url의 path인 id를 가져온다.
-  const part = useMatch("/:part")?.params.part;
-  const sliderPart = useMatch("/:sliderPart")?.params.sliderPart;
+  
+  // const bigModalMatch = useRouteMatch<{
+  //   part: string;
+  //   sliderPart: string;
+  //   id: string;
+  // }>("/:part/:sliderPart/:id");
+
+  // update: useMatch를 사용하면 더 간단하게 작성할 수 있다.
+
+  const bigModalMatch = useMatch<{
+    part: string;
+    sliderPart: string;
+    id: string;
+  }>("/:part/:sliderPart/:id");
+
+
+  const part = bigModalMatch?.params.part;
+  const id = bigModalMatch?.params.id;
 
   // 영화
   // 현재 상영중인 영화

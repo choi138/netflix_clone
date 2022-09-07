@@ -117,7 +117,7 @@ export async function getDetail(part?: string, id?: number){ // 영화 +@TV 상�
 }
 
 // Movie +@TV Clicp API
-export async function getClip(part?: string, id?: number){ // 영화 +@TV 클립 가져오기
+export async function getClipDetails(part?: string, id?: number){ // 영화 +@TV 클립 가져오기
     return await fetch(`${BASE_PATH}/${part}/${id}/videos?api_key=${API_KEY}`)
     .then((response) => response.json());
 }

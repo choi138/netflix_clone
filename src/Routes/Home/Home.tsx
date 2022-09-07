@@ -32,8 +32,8 @@ import { useEffect } from "react";
 
 function Home(){
 
-  const location = useLocation()
-  const {part,id} = useParams<"part"|"id">()
+  const location = useLocation() // 현재 url의 path를 가져온다.
+  const {part,id} = useParams<"part"|"id">() // useParams는 url의 파라미터를 가져온다.
 
   // 영화
   // 현재 상영중인 영화
@@ -66,7 +66,7 @@ function Home(){
   const {data: recomendations} = useQuery(["movie", id], () => // movieRecommend은 getRecommend의 data를 받아온다.
   getRecommend(part, parseInt(id || ""))
   );
-  const clips = getClips?.results?.slice(0, 1); // clips는 movieClip의 results의 0번째부터 1번째까지의 데이터를 가져온다.
+  const clips = getClips?.results?.slice(-3).reverse(); // clips는 movieClip의 results의 0번째부터 1번째까지의 데이터를 가져온다.
   const isLoading = playingLoading || topRatedLoading || upcomingLoading || tvAiringLoading || tvPopularLoading || tvTopRatedLoading; 
   // isLoading은 현재 상영중인 영화, 인기 영화, 개봉 예정 영화, 현재 방영중인 Tv, 인기 Tv가 모두 로딩이 끝나야 false가 된다.
 
@@ -83,6 +83,15 @@ function Home(){
           id="banner"
           part="movie"
           movies={nowPlayingMovies?.results}></Banner>
+          <S.SliderWrapper>
+            <Slider
+            id="nowPlayingData"
+            movies={nowPlayingMovies?.results ?? []}
+            title="Now Playing"
+            query="nowPlayingMovies"
+            part="movie"
+            ></Slider>
+          </S.SliderWrapper>
         </>
         )}
     </S.Wrapper>

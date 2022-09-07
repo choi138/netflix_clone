@@ -16,7 +16,7 @@ function App() {
         <Routes>
             <Route path="/tv" element={<Tv/>}/>  {/* TV프로그램들을 위한 라우트*/}
             <Route path="/search" element={<Search/>}/>  {/*검색을 위한 라우트*/}
-            <Route path="/:part/:id" element={<Home/>}/>  {/*영화들을 보여줄 home라우트*/}
+            <Route path="/:part/:sliderPart/:id" element={<Home/>}/>  {/*영화들을 보여줄 home라우트*/}
             <Route index element={<Home/>}/>
         </Routes>
     </Router>

@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import styled from "styled-components";
 
 export const Mainhome = styled.div<{ bgPhoto: string }>` // 이미지 칸을 만들어준다.
-    height: 80vh;
+    height: 800px;
     min-height: 350px;
     display: flex;
     flex-direction: column;

@@ -8,11 +8,6 @@ export const Wrapper = styled.div`
   height: 100vh;
 `;
 
-export const Container = styled.div`
-  height: 30px;
-  background-color: #1a7a4c;
-`
-
 export const Loader = styled.div`
   display: flex;
   justify-content: center;
@@ -21,7 +16,7 @@ export const Loader = styled.div`
 
 export const SliderWrapper = styled.div`
   position: relative;
-  top: -15vw;
+  top: -10px;
   min-width: 840px;
 `;
 

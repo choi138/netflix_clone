@@ -29,6 +29,7 @@ import * as S from "./HomeStyle";
 import { useEffect } from "react";
 
 
+
 function Home(){
 
   const location = useLocation()
@@ -75,7 +76,15 @@ function Home(){
         <title>Home</title> 
       </Helmet>
       {isLoading ? (
-      ) : (null)}
+        <S.Loader>Loading...</S.Loader>
+      ) : (
+        <>
+          <Banner
+          id="banner"
+          part="movie"
+          movies={nowPlayingMovies?.results}></Banner>
+        </>
+        )}
     </S.Wrapper>
   )
   }

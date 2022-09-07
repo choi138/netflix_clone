@@ -13,6 +13,18 @@ export const Container = styled.div`
   background-color: #1a7a4c;
 `
 
+export const Loader = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+export const SliderWrapper = styled.div`
+  position: relative;
+  top: -15vw;
+  min-width: 840px;
+`;
+
 // export const Wrapper = styled.div`
 //   background-color: black;
 // `;

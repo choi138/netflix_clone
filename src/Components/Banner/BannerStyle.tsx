@@ -1,0 +1,116 @@
+import { motion } from "framer-motion";
+import styled from "styled-components";
+
+export const Mainhome = styled.div<{ bgPhoto: string }>` // 이미지 칸을 만들어준다.
+    height: 80vh;
+    min-height: 350px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 60px;
+    background-image: linear-gradient(
+      rgba(19, 16, 16, 0),
+      rgba(19, 16, 16, 0.7),
+      #101820
+    ),
+    url(${(props) => props.bgPhoto});
+  background-size: cover;
+`; 
+
+export const TitleLayer = styled.div` // 이미지 제목을 넣을 칸을 만들어준다.
+    width: 600px;
+    /* border: 1px solid white; */
+`;
+
+export const TitleWrapper = styled.div` // 이미지 제목을 넣을 칸을 만들어준다.
+    display: flex;
+    /* border: 1px solid red; */
+`;
+
+export const Title = styled.div`
+    color: #F2AA4C;
+    min-height: 70px; // 제목의 최소 높이를 설정해준다.
+    max-width: 80%; // 이미지 제목이 너무 길어지면 줄바꿈을 해준다.
+    margin-bottom: 20px;
+    font-size: 38px;
+    font-weight: 500;
+`;
+
+export const InfoWrapper = styled.div`
+    min-height: 70px;
+    width: 100%; 
+    font-size: 20px;
+    text-shadow: 2px 2px 4px rgb(0 0 0 / 50%);
+`;
+
+export const Info = styled.div`
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+`;
+
+export const InfoFristText = styled.div`
+    font-weight: 600;
+    color: #101820;
+    margin-right: 20px;
+`;
+
+export const InfoSecondText = styled.div`
+    color: #F2AA4C;
+    font-weight: 500;
+    margin-right: 10px;
+`;
+
+export const InfoSummary = styled.p`
+    font-size: 20px;
+    color: #F2AA4C;
+`;
+
+export const TitleButtonWrapper = styled.div`
+    display: flex;
+`;
+
+export const TitlePlayButton = styled(motion.div)`
+    width: 100px;
+    -webkit-box-align: center; // flex의 align-items와 같은 기능을 한다.
+    align-items: center;
+    appearance: none; // 버튼의 기본 스타일을 없애준다.
+    border: 0;
+    border-radius: 4px;
+    cursor: pointer;
+    display: flex;
+    -webkit-box-pack: center; // flex의 justify-content와 같은 기능을 한다.
+    justify-content: center;
+    opacity: 1;
+    padding: 5px 10px;
+    position: relative;
+    user-select: none; // 텍스트를 선택하지 못하게 한다.
+    will-change: background-color, color; // 애니메이션을 할 때, 렌더링을 최적화 해준다.
+    background-color: #F2AA4C;
+    color: #101820;
+    font-size: 16px;
+    font-weight: 500;
+    margin-top: 20px;
+    margin-right: 10px;
+    &:hover {
+        background-color: #a07844;
+    }
+`;
+
+export const ButtonIcon = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+`;
+
+export const ButtonText = styled.span`
+    font-weight: 900;
+`
+
+export const TitleInfoButton = styled(TitlePlayButton)`
+    background-color: #101820;
+    color: #F2AA4C;
+    &:hover {
+        background-color: rgba(109, 109, 110, 0.4);
+    }
+`;

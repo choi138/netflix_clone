@@ -3,28 +3,25 @@ import {motion} from "framer-motion";
 
 
 export const SliderWrapper = styled.div`
-    border: 1px solid white;
-    position: relative;
-    margin: 30px 0;
-    /* height: 25vw; */
-    padding: 0;
-    &:hover svg{
+  position: relative;
+  justify-content: center;
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;  
+  height: 100%;
+  &:hover svg{
         opacity: 1;
-    }
-    width: 100%;
-    display: inline-block; //inline-block은 요소를 인라인 요소처럼 취급하면서도 블록 요소처럼 줄바꿈이 가능하다.
-    /* min-height: 200px; //min-height는 요소의 최소 높이를 지정한다. */
+  }
 `;
 
 export const SliderTitle = styled.h2`
-    border: 1px solid white;
-    line-height: 1.2;
-    font-size: 14px;
-    font-weight: 700;
-    margin: 0 0 10px;
-    text-decoration: none;
-    display: inline-block;
-    min-width: 60px;
+text-align: left;
+  color: #F2AA4C;
+  line-height: 1.2;
+  font-size: 18px;
+  font-weight: 700;
+  text-decoration: none;
+  width: 1320px;
 `;
 
 export const ArrowBox = styled(motion.span)`
@@ -55,13 +52,28 @@ export const ArrowBox = styled(motion.span)`
 `;
 
 export const Row = styled(motion.div)`
-    display: grid;
-    gap: 10px;
-    margin-bottom: 5px;
-    grid-template-columns: repeat(6,1fr);  //repeat(6,1fr)은 6개의 열을 만들고 각 열의 너비를 1fr로 설정한다.
-    padding: 30px;
-    position: absolute;
+  justify-content: center;  
+  flex-wrap: wrap;
+  display: grid; // display: grid를 사용해서 박스들을 정렬해준다.
+  gap: 5px; // 박스들 사이의 간격을 조절해준다.
+  grid-template-columns: repeat(6, 1fr); // 6개의 박스를 가로로 정렬해준다.
+  position: absolute;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-top: 10px;
+  width: 1320px;
 `;
+
+export const Wrap = styled.div`
+  height: 400px;
+  position: relative;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 100%;
+  
+`
 
 export const MovieBox = styled(motion.div)`
     &:first-child {
@@ -83,7 +95,7 @@ export const MovieBox = styled(motion.div)`
 `;
 
 export const MovieBoxInfo = styled(motion.div)`
-    padding: 10px;
+    /* padding: 10px; */
     background-color: rgba(0,0,0,0.5);
     margin-top: -5px;
     width: 100%;

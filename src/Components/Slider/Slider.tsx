@@ -57,7 +57,7 @@ interface IData {
     part: string;
 }
 
-function Slider({id, title, query, movies, part}: IData) {
+function Slider({id, title, movies, part}: IData) {
     const [index, setIndex] = useState(0);
     const [sliderMoving, setSliderMoving] = useState(false);
     const [sliderMovingPrev, setSliderMovingPrev] = useState(false);
@@ -100,6 +100,7 @@ function Slider({id, title, query, movies, part}: IData) {
                     <MdKeyboardArrowLeft size="60px" />
                 </S.ArrowBox>
             )}
+            <S.Wrap>
             <AnimatePresence
             custom={{prev: sliderMovingPrev}} // custom={{prev: sliderMovingPrev}}는 슬라이더가 이전으로 움직이는지 다음으로 움직이는지를 알려준다.
             initial={false} // 초기값을 false로 설정
@@ -137,6 +138,7 @@ function Slider({id, title, query, movies, part}: IData) {
                 ))}
             </S.Row>
             </AnimatePresence>
+            </S.Wrap>
             <S.RightArrow onClick={increaseIndex}>
                 <MdKeyboardArrowRight size="60px" />
             </S.RightArrow>

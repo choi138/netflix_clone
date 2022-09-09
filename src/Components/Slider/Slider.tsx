@@ -126,7 +126,7 @@ function Slider({id, title, movies, part}: IData) {
                     onClick={() => {onBoxClick(part, movie.id, id)}}
                     key={movie.id}
                     >
-                        <img src={makeImagePath(movie.poster_path, "w500")} />
+                        <img src={makeImagePath(movie.backdrop_path, "w500" )} />
                         <S.MovieBoxInfo variants={infoVariants}>
                             {part === "movie" ? (
                                 <S.Moviename>{movie.title}</S.Moviename>

@@ -3,15 +3,21 @@ import {motion} from "framer-motion";
 
 
 export const SliderWrapper = styled.div`
+  /* border: 1px solid red; */
   position: relative;
-  justify-content: center;
-  display: flex;
-  flex-wrap: wrap;
-  width: 100%;  
-  height: 100%;
-  &:hover svg{
-        opacity: 1;
+  height: 250px;
+  padding: 0;
+  &:hover svg {
+    opacity: 1;
   }
+  width: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: 0 30px;
+  margin-bottom: 50px;
+  min-height: 200px;
 `;
 
 export const SliderTitle = styled.h2`
@@ -21,7 +27,7 @@ text-align: left;
   font-size: 18px;
   font-weight: 700;
   text-decoration: none;
-  width: 1320px;
+  width: 100%;
 `;
 
 export const ArrowBox = styled(motion.span)`
@@ -61,7 +67,7 @@ export const Row = styled(motion.div)`
   margin-left: 10px;
   margin-right: 10px;
   margin-top: 10px;
-  width: 1320px;
+  width: 100%;
 `;
 
 export const Wrap = styled.div`

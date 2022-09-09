@@ -7,11 +7,10 @@ export const Wrap = styled.div`
     display: flex;
     justify-content: center;
     width: 100%;
-    margin-bottom: 20px;
 `;
 
 export const Mainhome = styled.div<{ bgPhoto: string }>` // 이미지 칸을 만들어준다.
-    height: 800px;
+    height: 500px;
     min-height: 350px;
     display: flex;
     justify-content: center;
@@ -29,7 +28,7 @@ export const Mainhome = styled.div<{ bgPhoto: string }>` // 이미지 칸을 만
 
 export const TitleLayer = styled.div` // 이미지 제목을 넣을 칸을 만들어준다.
 margin-bottom: 150px;
-    width: 1320px;
+    width: 100%;
 `;
 
 export const TitleWrapper = styled.div` // 이미지 제목을 넣을 칸을 만들어준다.

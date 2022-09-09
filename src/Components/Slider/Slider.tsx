@@ -8,17 +8,18 @@ import * as S from "../Slider/SliderStyle";
 import { AnimatePresence } from "framer-motion"; // AnimatePresence는 컴포넌트가 사라질때 애니메이션을 줄 수 있게 해준다.
 import { makeImagePath } from "../../Api/utilities";
 
+
 const rowVariants = {
-    hidden: ({prev}: {prev: boolean}) => ({ 
-        x: prev ? "-100vw" : "100vw", // prev가 참이라면 x축으로 -100vw만큼 이동하고 거짓이라면 x축으로 100vw만큼 이동한다.
+    hidden: ({ prev }: { prev: boolean }) => ({
+      x: prev ? "100vw" : "-100vw",
     }),
     visible: {
-        x: 0,
+      x: 0,
     },
-    exit:({prev}: {prev: boolean}) => ({ 
-        x: prev ? "100vw" : "-100vw", // prev가 참이라면 x축으로 100vw만큼 이동하고 거짓이라면 x축으로 -100vw만큼 이동한다.
+    exit: ({ prev }: { prev: boolean }) => ({
+      x: prev ? "100vw" : "-100vw",
     }),
-};
+  };
 
 const movieBoxVariants = {
     normal:{
@@ -62,21 +63,22 @@ function Slider({id, title, query, movies, part}: IData) {
     const [sliderMovingPrev, setSliderMovingPrev] = useState(false);
 
     const totalMovies = movies?.length-1;
-    const maxIndex = Math.floor(totalMovies/offset) -1;
+    const maxIndex = Math.floor(totalMovies/offset) -1; 
     // slider + 1
     const increaseIndex = () => {
         if(!sliderMoving && movies) { // 만약 슬라이더가 움직이고 있지 않고 영화가 존재한다면
             setSliderMoving(true); // 슬라이더 움직임을 true로 변경
-            setSliderMovingPrev(true); // 슬라이더 움직임을 true로 변경
-            setIndex((prev) => (prev === maxIndex ? 0 : prev + 1)); // 0이라면 maxIndex로 초기화, 아니라면 1씩 증가
+            setSliderMovingPrev(false); // 슬라이더 움직임을 true로 변경
+            setIndex((prev) => (prev === maxIndex ? 0 : prev + 1)); // maxIndex가 index와 같다면 0으로 변경하고 아니라면 index + 1
+            // console.log(index);
         }
     };
     // slider - 1
     const decreaseIndex = () => {
         if(!sliderMoving && movies) { // 만약 슬라이더가 움직이고 있지 않고 영화가 존재한다면
-            setSliderMoving(true); // 슬라이더 움직임을 true로 변경
+            setSliderMoving(false); // 슬라이더 움직임을 true로 변경
             setSliderMovingPrev(true); // 슬라이더 움직임을 true로 변경
-            setIndex((prev) => (prev === 0 ? maxIndex : prev - 1)); // 0이라면 maxIndex로 초기화, 아니라면 1씩 감소
+            setIndex((prev) => (prev === maxIndex ? prev - 1 : 0)); 
         }
     }
     // slider done
@@ -95,7 +97,7 @@ function Slider({id, title, query, movies, part}: IData) {
             <S.SliderTitle>{title}</S.SliderTitle>
             {index === 0 ? null : (
                 <S.ArrowBox onClick={decreaseIndex}>
-                    <MdKeyboardArrowLeft size="3vw" />
+                    <MdKeyboardArrowLeft size="60px" />
                 </S.ArrowBox>
             )}
             <AnimatePresence
@@ -109,7 +111,7 @@ function Slider({id, title, query, movies, part}: IData) {
             animate="visible" // 실행될 애니메이션을 visible로 설정
             exit="exit" // 사라질 애니메이션을 exit로 설정
             custom={{prev: sliderMoving}} // custom={{prev: sliderMoving}}는 슬라이더가 이전으로 움직이는지 다음으로 움직이는지를 알려준다.
-            transition={{type: "tween",duration: 1}} // 애니메이션의 시간을 0.5로 설정;
+            transition={{type: "tween",duration: 0.5}} // 애니메이션의 시간을 0.5로 설정;
             key={index} // key값을 index로 설정
             >
                 {movies

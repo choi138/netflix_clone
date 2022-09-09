@@ -3,17 +3,17 @@ import {motion} from "framer-motion";
 
 
 export const SliderWrapper = styled.div`
-    /* border: 1px solid white; */
+    border: 1px solid white;
     position: relative;
-    margin: 3vw 0;
-    height: 25vw;
+    margin: 30px 0;
+    /* height: 25vw; */
     padding: 0;
     &:hover svg{
         opacity: 1;
     }
     width: 100%;
     display: inline-block; //inline-block은 요소를 인라인 요소처럼 취급하면서도 블록 요소처럼 줄바꿈이 가능하다.
-    min-height: 200px; //min-height는 요소의 최소 높이를 지정한다.
+    /* min-height: 200px; //min-height는 요소의 최소 높이를 지정한다. */
 `;
 
 export const SliderTitle = styled.h2`
@@ -28,12 +28,12 @@ export const SliderTitle = styled.h2`
 `;
 
 export const ArrowBox = styled(motion.span)`
-    cursor: pointer;
+  cursor: pointer;
   position: absolute;
   top: 0;
   bottom: 0;
-  z-index: 20;
-  width: 4%;
+  height: 100px;
+  width: 50px;
   text-align: center;
   display: flex;
   justify-content: center;
@@ -41,16 +41,16 @@ export const ArrowBox = styled(motion.span)`
   line-height: 1;
   color: #fff;
   z-index: 11;
-  background: rgba(20, 20, 20, 0.5);
+  background: rgba(18,18,18,.45);
   border-radius: 0 5px 5px 0;
   svg {
-    color: rgba(255, 255, 255, 0.5);
+    color: #fff;;
     transition: all 0.1s ease;
     opacity: 0;
   }
   &:hover svg {
-    color: rgb(255, 255, 255);
-    transform: scale(1.4);
+    color: #F2AA4C;
+    /* transform: scale(1.4); */
   }
 `;
 
@@ -99,6 +99,7 @@ export const Moviename = styled(motion.h4)`
 `;
 
 export const RightArrow = styled(ArrowBox)`
-right: 0;
-border-radius: 5px 0 0 5px;
+  /* border: 1px solid red; */
+  right: 0;
+  border-radius: 5px 0 0 5px;
 `;

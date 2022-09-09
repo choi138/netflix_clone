@@ -111,7 +111,7 @@ function Slider({id, title, query, movies, part}: IData) {
             animate="visible" // 실행될 애니메이션을 visible로 설정
             exit="exit" // 사라질 애니메이션을 exit로 설정
             custom={{prev: sliderMoving}} // custom={{prev: sliderMoving}}는 슬라이더가 이전으로 움직이는지 다음으로 움직이는지를 알려준다.
-            transition={{type: "tween",duration: 0.5}} // 애니메이션의 시간을 0.5로 설정;
+            transition={{type: "tween",duration: 0.6}} // 애니메이션의 시간을 0.5로 설정;
             key={index} // key값을 index로 설정
             >
                 {movies
@@ -138,7 +138,7 @@ function Slider({id, title, query, movies, part}: IData) {
             </S.Row>
             </AnimatePresence>
             <S.RightArrow onClick={increaseIndex}>
-                <MdKeyboardArrowRight size="3vw" />
+                <MdKeyboardArrowRight size="60px" />
             </S.RightArrow>
         </S.SliderWrapper>
     );

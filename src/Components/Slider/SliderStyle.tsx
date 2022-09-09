@@ -15,7 +15,7 @@ export const SliderWrapper = styled.div`
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-  margin: 0 30px;
+  margin-left: 52px;
   margin-bottom: 50px;
   min-height: 200px;
 `;

@@ -10,7 +10,7 @@ export const Wrap = styled.div`
 `;
 
 export const Mainhome = styled.div<{ bgPhoto: string }>` // 이미지 칸을 만들어준다.
-    height: 500px;
+    height: 582px;
     min-height: 350px;
     display: flex;
     justify-content: center;

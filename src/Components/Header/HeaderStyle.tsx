@@ -3,6 +3,7 @@ import { motion, useAnimation, useScroll } from "framer-motion";
 import { Link, useMatch } from "react-router-dom";
 
 export const Nav = styled(motion.nav)` // nav는 UI전환. Fragment 트랜잭션 관리, 딥링크 구현 및 처리, 안전한 데이터 전달 등 다양한 기능을 제공하고 있다.
+    z-index: 10;
     display: flex;
     justify-content: space-between;
     align-items: center;

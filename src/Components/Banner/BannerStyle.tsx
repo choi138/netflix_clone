@@ -1,36 +1,45 @@
 import { motion } from "framer-motion";
 import styled from "styled-components";
 
+export const Wrap = styled.div`
+    position: relative;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-bottom: 20px;
+`;
+
 export const Mainhome = styled.div<{ bgPhoto: string }>` // 이미지 칸을 만들어준다.
     height: 800px;
     min-height: 350px;
     display: flex;
-    flex-direction: column;
     justify-content: center;
-    padding: 60px;
+    align-items: center;
+    width: 100%;
     background-image: linear-gradient(
       rgba(19, 16, 16, 0),
       rgba(19, 16, 16, 0.7),
       #101820
     ),
     url(${(props) => props.bgPhoto});
+    
   background-size: cover;
 `; 
 
 export const TitleLayer = styled.div` // 이미지 제목을 넣을 칸을 만들어준다.
-    width: 600px;
-    /* border: 1px solid white; */
+margin-bottom: 150px;
+    width: 1320px;
 `;
 
 export const TitleWrapper = styled.div` // 이미지 제목을 넣을 칸을 만들어준다.
     display: flex;
-    /* border: 1px solid red; */
+    text-align: left;
 `;
 
 export const Title = styled.div`
+    width: fit-content;
     color: #F2AA4C;
-    min-height: 70px; // 제목의 최소 높이를 설정해준다.
-    max-width: 80%; // 이미지 제목이 너무 길어지면 줄바꿈을 해준다.
     margin-bottom: 20px;
     font-size: 38px;
     font-weight: 500;
@@ -38,7 +47,6 @@ export const Title = styled.div`
 
 export const InfoWrapper = styled.div`
     min-height: 70px;
-    width: 100%; 
     font-size: 20px;
     text-shadow: 2px 2px 4px rgb(0 0 0 / 50%);
 `;
@@ -61,9 +69,12 @@ export const InfoSecondText = styled.div`
     margin-right: 10px;
 `;
 
-export const InfoSummary = styled.p`
-    font-size: 20px;
+export const InfoSummary = styled.div`
+    width: 500px;
+    text-align: left;
+    font-size: 18px;
     color: #F2AA4C;
+    margin-bottom: 10px;
 `;
 
 export const TitleButtonWrapper = styled.div`

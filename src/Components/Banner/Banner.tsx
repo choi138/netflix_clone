@@ -28,6 +28,7 @@ function Banner({id, part, movies} : IBanner){
     return (
         <>
             {movie ? (
+                <S.Wrap>
                 <S.Mainhome bgPhoto={makeImagePath(movie?.backdrop_path)}>
                     <S.TitleLayer>
                         <S.TitleWrapper>
@@ -58,6 +59,7 @@ function Banner({id, part, movies} : IBanner){
                         </S.TitleButtonWrapper>
                     </S.TitleLayer>
                 </S.Mainhome>
+                </S.Wrap>
             ): null}
         </>
     );

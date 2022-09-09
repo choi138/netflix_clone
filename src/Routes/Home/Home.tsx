@@ -26,7 +26,7 @@ import Modal from "../../Components/Modal/Modal";
 
 import {Link} from "react-router-dom";
 import * as S from "./HomeStyle";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 
 

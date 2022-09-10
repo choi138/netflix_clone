@@ -95,11 +95,6 @@ function Slider({id, title, movies, part}: IData) {
     return(
         <S.SliderWrapper>
             <S.SliderTitle>{title}</S.SliderTitle>
-            {index === 0 ? null : (
-                <S.ArrowBox onClick={decreaseIndex}>
-                    <MdKeyboardArrowLeft size="60px" />
-                </S.ArrowBox>
-            )}
             <S.Wrap>
             <AnimatePresence
             custom={{prev: sliderMovingPrev}} // custom={{prev: sliderMovingPrev}}는 슬라이더가 이전으로 움직이는지 다음으로 움직이는지를 알려준다.
@@ -115,6 +110,14 @@ function Slider({id, title, movies, part}: IData) {
             transition={{type: "tween",duration: 0.6}} // 애니메이션의 시간을 0.5로 설정;
             key={index} // key값을 index로 설정
             >
+            {index === 0 ? null : (
+                <S.ArrowBox onClick={decreaseIndex}>
+                    <MdKeyboardArrowLeft size="60px" />
+                </S.ArrowBox>
+            )}
+            <S.RightArrow onClick={increaseIndex}>
+                <MdKeyboardArrowRight size="60px" />
+            </S.RightArrow>
                 {movies
                 ?.slice(1)
                 .slice(offset * index, offset * index + offset).map((movie) => (
@@ -139,9 +142,6 @@ function Slider({id, title, movies, part}: IData) {
             </S.Row>
             </AnimatePresence>
             </S.Wrap>
-            <S.RightArrow onClick={increaseIndex}>
-                <MdKeyboardArrowRight size="60px" />
-            </S.RightArrow>
         </S.SliderWrapper>
     );
 };

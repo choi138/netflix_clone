@@ -41,18 +41,20 @@ function Banner({id, part, movies} : IBanner){
                                 <S.InfoFristText>{movie?.release_date}</S.InfoFristText>
                                 <S.InfoSecondText>{movie?.vote_average}</S.InfoSecondText>
                             </S.Info>
-                            <S.InfoSummary>{movie?.overview}</S.InfoSummary>
+                            <S.InfoSummary>
+                                <S.Summary>{movie?.overview}</S.Summary>
+                            </S.InfoSummary>
                         </S.InfoWrapper>
                         <S.TitleButtonWrapper>
                             <S.TitlePlayButton onClick={() => {onBoxClick(part, movie.id, id)}}>
                                 <S.ButtonIcon>
-                                    <BsPlayFill size="30px"/>
+                                    <BsPlayFill size="1.5vw"/>
                                 </S.ButtonIcon>
                                 <S.ButtonText>Play</S.ButtonText>
                             </S.TitlePlayButton>
                             <S.TitleInfoButton onClick={() => {onBoxClick(part, movie.id, id)}}>
                                 <S.ButtonIcon>
-                                    <BsInfoCircle size="20px"/>
+                                    <BsInfoCircle/>
                                     <S.ButtonText style={{ marginLeft: "10px" }}>Info</S.ButtonText>
                                 </S.ButtonIcon>
                             </S.TitleInfoButton>

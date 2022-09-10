@@ -6,11 +6,13 @@ export const Wrap = styled.div`
     text-align: center;
     display: flex;
     justify-content: center;
+    align-items: center;
     width: 100%;
 `;
 
 export const Mainhome = styled.div<{ bgPhoto: string }>` // 이미지 칸을 만들어준다.
-    height: 582px;
+    /* border: 1px solid red; */
+    height: 65vh;
     min-height: 350px;
     display: flex;
     justify-content: center;
@@ -27,7 +29,9 @@ export const Mainhome = styled.div<{ bgPhoto: string }>` // 이미지 칸을 만
 `; 
 
 export const TitleLayer = styled.div` // 이미지 제목을 넣을 칸을 만들어준다.
-margin-bottom: 150px;
+    margin-left: 30px;
+    margin-top: 50px;
+    margin-bottom: 10px;
     width: 100%;
 `;
 
@@ -39,18 +43,19 @@ export const TitleWrapper = styled.div` // 이미지 제목을 넣을 칸을 만
 export const Title = styled.div`
     width: fit-content;
     color: #F2AA4C;
-    margin-bottom: 20px;
-    font-size: 38px;
+    margin-bottom: 40px;
+    font-size: 2.5vw;
     font-weight: 500;
 `;
 
 export const InfoWrapper = styled.div`
     min-height: 70px;
-    font-size: 20px;
     text-shadow: 2px 2px 4px rgb(0 0 0 / 50%);
+    color: #F2AA4C;
 `;
 
 export const Info = styled.div`
+    font-size: 1.1vw;
     display: flex;
     align-items: center;
     margin-bottom: 20px;
@@ -63,17 +68,19 @@ export const InfoFristText = styled.div`
 `;
 
 export const InfoSecondText = styled.div`
-    color: #F2AA4C;
     font-weight: 500;
     margin-right: 10px;
 `;
 
 export const InfoSummary = styled.div`
-    width: 500px;
+    width: 35vw;
     text-align: left;
     font-size: 18px;
-    color: #F2AA4C;
     margin-bottom: 10px;
+`;
+
+export const Summary = styled.p`
+    font-size: 1.1vw;
 `;
 
 export const TitleButtonWrapper = styled.div`
@@ -81,7 +88,7 @@ export const TitleButtonWrapper = styled.div`
 `;
 
 export const TitlePlayButton = styled(motion.div)`
-    width: 100px;
+    width: 5vw;
     -webkit-box-align: center; // flex의 align-items와 같은 기능을 한다.
     align-items: center;
     appearance: none; // 버튼의 기본 스타일을 없애준다.

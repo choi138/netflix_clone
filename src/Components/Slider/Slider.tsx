@@ -3,7 +3,7 @@ import {useRecoilState} from "recoil";
 import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from "react-icons/md";
 import { useNavigate } from "react-router-dom";
 import { IMovie } from "../../Api/api";
-import { modatState } from "../../atom";
+import { modalState } from "../../atom";
 import * as S from "../Slider/SliderStyle";
 import { AnimatePresence } from "framer-motion"; // AnimatePresence는 컴포넌트가 사라질때 애니메이션을 줄 수 있게 해준다.
 import { makeImagePath } from "../../Api/utilities";
@@ -86,7 +86,7 @@ function Slider({id, title, movies, part}: IData) {
         setSliderMoving(false); // 슬라이더 움직임을 false로 변경
         setSliderMovingPrev(false); // 슬라이더 움직임을 false로 변경
     };
-    const [isModalActive, setIsModalActive] = useRecoilState(modatState); // useRecoilState은 atom의 값을 가져오는 hook이다.
+    const [isModalActive, setIsModalActive] = useRecoilState(modalState); // useRecoilState은 atom의 값을 가져오는 hook이다.
     const history = useNavigate(); //useNavigate는 history를 사용할 수 있게 해준다. history는 브라우저의 기록을 관리한다.
     const onBoxClick = (part:string, id:number, sliderId: string) => {
         history(`/${part}/${sliderId}/${id}`); // history를 사용해서 url을 조작한다.

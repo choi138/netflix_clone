@@ -48,7 +48,7 @@ export interface IMovieDetail{ // 영화 +@TV 상세 정보 인터페이스
     backdrop_path: string; // 백그라운드 이미지
 };
 
-export interface IGetMovieRecommendations{ // 영화 +@TV 추천 목록 인터페이스
+export interface IGetMovieRecommend{ // 영화 +@TV 추천 목록 인터페이스
     page: number; // 페이지
     results: IMovie[]; // 영화 +@TV 목록
     total_pages: number; // 전체 페이지 수

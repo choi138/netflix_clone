@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { BsInfoCircle, BsPlayFill } from "react-icons/bs";  // react-icons는 아이콘을 사용할 수 있게 해준다.
 import {useRecoilState} from "recoil";
 import {IMovie} from "../../Api/api";
-import { modatState } from "../../atom";
+import { modalState } from "../../atom";
 import {useNavigate} from "react-router-dom"; //useNavigate는 양식이 제출되거나 특정 event가 발생할 때,  url을 조작할 수 있는 interface를 제공한다.
 import * as S from "./BannerStyle";
 import { makeImagePath } from "../../Api/utilities";
@@ -19,7 +19,7 @@ function Banner({id, part, movies} : IBanner){
     useEffect(() => {
         if(movies) setMovie(movies[0]); // movies가 있으면 movie에 movies의 0번째 데이터를 넣는다.
     }, [movies])
-    const [isModalActive, setIsModalActive] = useRecoilState(modatState); // useRecoilState은 atom의 값을 가져오는 hook이다.
+    const [isModalActive, setIsModalActive] = useRecoilState(modalState); // useRecoilState은 atom의 값을 가져오는 hook이다.
     const history = useNavigate(); //useNavigate는 history를 사용할 수 있게 해준다. history는 브라우저의 기록을 관리한다.
     const onBoxClick = (part:string, id:number, sliderId: string) => {
         history(`/${part}/${sliderId}/${id}`); // history를 사용해서 url을 조작한다.

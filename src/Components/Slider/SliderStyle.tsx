@@ -3,9 +3,9 @@ import {motion} from "framer-motion";
 
 
 export const SliderWrapper = styled.div`
-/* border: 1px solid blueviolet; */
+  /* border: 1px solid red; */
+  margin-top: 30px;
   position: relative;
-  height: 250px;
   padding: 0;
   &:hover svg {
     opacity: 1;
@@ -15,21 +15,28 @@ export const SliderWrapper = styled.div`
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-  min-height: 200px;
+`;
+
+export const TopSliderWrapper = styled(SliderWrapper)`
+/* border: 1px solid blue; */
+  height: fit-content;
 `;
 
 export const SliderTitle = styled.h2`
+  /* border: 1px solid green; */
   margin-left: 30px;
 text-align: left;
   color: #F2AA4C;
   line-height: 1.2;
-  font-size: 1.5vw;
+  font-size: 18px;
   font-weight: 700;
   text-decoration: none;
   width: 100%;
+  height: fit-content;
 `;
 
 export const ArrowBox = styled(motion.span)`
+  /* border: 1px solid red; */
   cursor: pointer;
   position: absolute;
   top: 18px;
@@ -54,10 +61,11 @@ export const ArrowBox = styled(motion.span)`
 
 export const Row = styled(motion.div)`
   padding: 0 30px;
+  padding-top: 20px;
   justify-content: center;  
   flex-wrap: wrap;
   display: grid; // display: grid를 사용해서 박스들을 정렬해준다.
-  gap: 5px; // 박스들 사이의 간격을 조절해준다.
+  gap: 10px; // 박스들 사이의 간격을 조절해준다.
   grid-template-columns: repeat(6, 1fr); // 6개의 박스를 가로로 정렬해준다.
   position: absolute;
   margin-top: 10px;
@@ -65,14 +73,19 @@ export const Row = styled(motion.div)`
 `;
 
 export const Wrap = styled.div`
+/* border: 1px solid green; */
   height: 400px;
   position: relative;
-  text-align: center;
+  text-align: left;
   display: flex;
-  justify-content: center;
+  /* justify-content: center; */
   flex-wrap: wrap;
-  width: 100%;
+  width: 1500px;
 `
+
+export const TopWrap = styled(Wrap)`
+  height: 420px;
+`;
 
 
 export const MovieBox = styled(motion.div)`
@@ -94,6 +107,12 @@ export const MovieBox = styled(motion.div)`
   cursor: pointer;
 `;
 
+export const TopMovieBox = styled(MovieBox)`
+  img{
+    width: 100%;
+  }
+`;
+
 export const MovieBoxInfo = styled(motion.div)`
     background-color: rgba(0,0,0,0.5);
     margin-top: -5px;
@@ -110,6 +129,16 @@ export const Moviename = styled(motion.h4)`
 `;
 
 export const RightArrow = styled(ArrowBox)`
+  /* border: 1px solid blue; */
   right: 0;
   border-radius: 5px 0 0 5px;
 `;
+
+export const TopRightArrow = styled(RightArrow)`
+  top: 130px;
+`;
+
+export const TopArrowBox = styled(ArrowBox)`
+  top: 132px;
+`;
+

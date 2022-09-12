@@ -93,8 +93,8 @@ function Slider({id, title, movies, part}: IData) {
         setIsModalActive(true); 
     };
     return(
-        <S.SliderWrapper>
-            <S.Wrap>
+        <S.TopSliderWrapper>
+            <S.TopWrap>
             <S.SliderTitle>{title}</S.SliderTitle>
             <AnimatePresence
             custom={{prev: sliderMovingPrev}} // custom={{prev: sliderMovingPrev}}는 슬라이더가 이전으로 움직이는지 다음으로 움직이는지를 알려준다.
@@ -111,17 +111,17 @@ function Slider({id, title, movies, part}: IData) {
             key={index} // key값을 index로 설정
             >
             {index === 0 ? null : (
-                <S.ArrowBox onClick={decreaseIndex}>
+                <S.TopArrowBox onClick={decreaseIndex}>
                     <MdKeyboardArrowLeft size="60px" />
-                </S.ArrowBox>
+                </S.TopArrowBox>
             )}
-            <S.RightArrow onClick={increaseIndex}>
+            <S.TopRightArrow onClick={increaseIndex}>
                 <MdKeyboardArrowRight size="60px" />
-            </S.RightArrow>
+            </S.TopRightArrow>
                 {movies
                 ?.slice(1)
                 .slice(offset * index, offset * index + offset).map((movie) => (
-                    <S.MovieBox
+                    <S.TopMovieBox
                     variants={movieBoxVariants}
                     initial="normal"
                     whileHover="hover"
@@ -137,12 +137,12 @@ function Slider({id, title, movies, part}: IData) {
                                 <S.Moviename>{movie.name}</S.Moviename>
                             )}
                         </S.MovieBoxInfo>
-                    </S.MovieBox>
+                    </S.TopMovieBox>
                 ))}
             </S.Row>
             </AnimatePresence>
-            </S.Wrap>
-        </S.SliderWrapper>
+            </S.TopWrap>
+        </S.TopSliderWrapper>
     );
 };
 

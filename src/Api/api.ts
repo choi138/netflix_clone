@@ -63,9 +63,9 @@ export function getNowPlayingMovies(){ // 현재 상영중인 영화 목록 가�
         .then(reponse => reponse.json())
     )
 }
-export function getTopRatedMovies(){ // 평점 높은 영화 목록 가져오기
+export function getPopularMovies(){ // 평점 높은 영화 목록 가져오기
     return(
-        fetch(`${BASE_PATH}/movie/top_rated?api_key=${API_KEY}`)
+        fetch(`${BASE_PATH}/movie/popular?api_key=${API_KEY}`)
         .then(reponse => reponse.json())
     )
 }

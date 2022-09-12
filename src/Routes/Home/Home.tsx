@@ -10,7 +10,7 @@ import {
   getRecommend,
   /* Movies*/
   getNowPlayingMovies,
-  getTopRatedMovies,
+  getPopularMovies,
   getUpcomingMovies,
   /* Tv */
   getTvAiring,
@@ -22,6 +22,7 @@ import {
 /**Components */
 import Banner from "../../Components/Banner/Banner";
 import Slider from "../../Components/Slider/Slider";
+import TopSlider from "../../Components/Slider/TopSlider";
 import Modal from "../../Components/Modal/Modal";
 
 import {Link} from "react-router-dom";
@@ -41,7 +42,7 @@ function Home(){
   useQuery<IGetMoviesResult>(["nowPlaying", "movie"], getNowPlayingMovies); 
   // 인기 영화
   const { data: topRatedMovies, isLoading: topRatedLoading } = // topRatedMovies는 getTopRatedMovies의 data를 받아온다.
-  useQuery<IGetMoviesResult>(["topRated", "movie"], getTopRatedMovies);
+  useQuery<IGetMoviesResult>(["topRated", "movie"], getPopularMovies);
   // 개봉 예정 영화
   const { data: upcomingMovies, isLoading: upcomingLoading } = // upcomingMovies는 getUpcomingMovies의 data를 받아온다.
   useQuery<IGetMoviesResult>(["upcoming", "movie"], getUpcomingMovies);
@@ -73,7 +74,7 @@ function Home(){
   return(
     <S.Wrapper>
       <Helmet>
-        <title>Home</title> 
+        <title>Clone BIFiLX</title> 
       </Helmet>
       {isLoading ? (
         <S.Loader>Loading...</S.Loader>
@@ -87,9 +88,44 @@ function Home(){
             <Slider
             id="nowPlayingData"
             movies={nowPlayingMovies?.results ?? []}
-            title="Now Playing"
+            title="Now Playing(movie)"
             query="nowPlayingMovies"
             part="movie"
+            ></Slider>
+            <Slider
+            id="nowPlayingData"
+            movies={topRatedMovies?.results ?? []}
+            title="Now TOP 10(movie)"
+            query="topRatedMovies"
+            part="movie"
+            ></Slider>
+            <Slider
+            id="nowPlayingData"
+            movies={upcomingMovies?.results ?? []}
+            title="UP Comming(movie)"
+            query="upcomingMovies"
+            part="movie"
+            ></Slider>
+            <Slider
+            id="nowPlayingData"
+            movies={tvAiring?.results ?? []}
+            title="Airing(tv)"
+            query="tvAiring"
+            part="tv"
+            ></Slider>
+            <Slider
+            id="nowPlayingData"
+            movies={tvPopular?.results ?? []}
+            title="Now TOP 10(tv)"
+            query="tvPopular"
+            part="tv"
+            ></Slider>
+            <Slider
+            id="nowPlayingData"
+            movies={tvTopRated?.results ?? []}
+            title="TOP Rated(tv)"
+            query="tvTopRated"
+            part="tv"
             ></Slider>
           </S.SliderWrapper>
         </>

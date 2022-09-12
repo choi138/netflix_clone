@@ -19,5 +19,30 @@ export const ModalContainer = styled(motion.div)`
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: 10;
+    z-index: 11;
+`;
+
+export const ModalDialog = styled(motion.article)` //article은 문서의 구획을 나타낸다.
+    position: relative;
+    margin: 15px auto;
+    max-width: 900px;
+    width: 100%;
+    height: calc(100vh - 3rem);
+    box-shadow: rgb(0 0 0 / 75%) 0px 3px 10px;
+    border-radius: 10px;
+    background-color: #101820;
+    overflow: auto;
+    z-index: 12;
+    &::-webkit-scrollbar {
+        display: none;
+    }
+`;
+
+export const ModalHeader = styled.div<{bgPhoto? : string}>`
+    width: 100%;
+    height:  calc(100vh - 48px);
+    object-fit: cover;
+    background-image: linear-gradient((0deg, #181818, transparent 50%)),
+    url(${(props) => props.bgPhoto});
+    background-size: cover;
 `;

@@ -26,7 +26,7 @@ export const SliderTitle = styled.h2`
   /* border: 1px solid green; */
   margin-left: 30px;
 text-align: left;
-  color: #F2AA4C;
+  color: #DAA03D;
   line-height: 1.2;
   font-size: 18px;
   font-weight: 700;
@@ -39,7 +39,8 @@ export const ArrowBox = styled(motion.span)`
   /* border: 1px solid red; */
   cursor: pointer;
   position: absolute;
-  top: 18px;
+  top: 0;
+  bottom: 0;
   width: 3%;
   text-align: center;
   display: flex;
@@ -134,11 +135,4 @@ export const RightArrow = styled(ArrowBox)`
   border-radius: 5px 0 0 5px;
 `;
 
-export const TopRightArrow = styled(RightArrow)`
-  top: 130px;
-`;
-
-export const TopArrowBox = styled(ArrowBox)`
-  top: 132px;
-`;
 

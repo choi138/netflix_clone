@@ -5,15 +5,17 @@ import {IMovieRecommendations, IMovieDetail} from "../../Api/api";
 import { makeImagePath } from "../../Api/utilities";
 import { modalState } from "../../atom";
 import * as S from "./ModalStyle";
+import TrailerVideo from "./Trailer/Trailer";
 
 interface IModalData{
+     children?: any;
      movieDetail: IMovieDetail;
-     movieClips: [string];
-     movieRecomendations: IMovieRecommendations;
+     movieClips?: [string];
+     movieRecomendations?: IMovieRecommendations;
 }
 
 function Modal({ movieDetail, movieClips, movieRecomendations }: IModalData) {
-     const bigModalMatch: PathMatch<string> | null = useMatch("/:part/:sliderPart/:id");
+     const bigModalMatch: PathMatch<string> | null = useMatch("/:part/:sliderPart/:id"); 
      const part = bigModalMatch?.params.part;
      const id = bigModalMatch?.params.id;
      const sliderPart = bigModalMatch?.params.sliderPart;
@@ -40,6 +42,7 @@ function Modal({ movieDetail, movieClips, movieRecomendations }: IModalData) {
                <AnimatePresence>
                     {bigModalMatch ? (
                          <>
+                         <h1 style={{color:"yellow"}}>Hello</h1>
                               <S.Overlay
                               exit={{ opacity: 0 }}
                               animate={{ opacity: 1 }}
@@ -58,11 +61,13 @@ function Modal({ movieDetail, movieClips, movieRecomendations }: IModalData) {
                                              movieDetail?.backdrop_path || movieDetail?.poster_path //
                                         )}
                                         >
-                                             {/* <div className="video">
-                                                  <TrailerVideo/>
-                                             </div> */}
+                                             <div className="video">
+                                                  <TrailerVideo part={part} id={id}/>
+                                             </div>
                                         </S.ModalHeader>
-
+                                        <CloseButton>
+                                             
+                                        </CloseButton>
                                    </S.ModalDialog>
                               </S.ModalContainer>
                          </>

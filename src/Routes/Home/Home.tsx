@@ -64,13 +64,13 @@ function Home(){
   useQuery<IGetMoviesResult>(["tvTopRated", "tv"], getTvTopRated);
 
   const {data: detail} = useQuery(["movie", id], () => // movieDetail은 getDetail의 data를 받아온다.
-  getDetail(part, parseInt(id || "")) 
+  getDetail(part,  id || "") 
   );
   const {data: getClips} = useQuery(["clips", id], () => // movieClip은 getClip의 data를 받아온다.
-  getClipDetails(part, parseInt(id || ""))
+  getClipDetails(part,id || "")
   );
   const {data: recomendations} = useQuery(["movie", id], () => // movieRecommend은 getRecommend의 data를 받아온다.
-  getRecommend(part, parseInt(id || ""))
+  getRecommend(part, id || "")
   );
   const clips = getClips?.results?.slice(-3).reverse(); // clips는 movieClip의 results의 0번째부터 1번째까지의 데이터를 가져온다.
   const isLoading = playingLoading || topRatedLoading || upcomingLoading || tvAiringLoading || tvPopularLoading || tvTopRatedLoading; 
@@ -90,6 +90,8 @@ function Home(){
           part="movie"
           movies={nowPlayingMovies?.results}></Banner>
           <S.SliderWrapper>
+            <S.Wrap>
+              <S.Title>Movie</S.Title>
             <Slider
             id="nowPlayingData"
             movies={nowPlayingMovies?.results ?? []}
@@ -111,6 +113,10 @@ function Home(){
             query="upcomingMovies"
             part="movie"
             ></Slider>
+            </S.Wrap>
+
+            <S.TvWrap>
+            <S.Title>TV</S.Title>
             <Slider
             id="nowPlayingData"
             movies={tvAiring?.results ?? []}
@@ -132,13 +138,14 @@ function Home(){
             query="tvTopRated"
             part="tv"
             ></Slider>
+            </S.TvWrap>
           </S.SliderWrapper>
         </>
         )}
         <Modal
-          // movieDetail={detail ?? []}
-          // movieClips={clips ?? []}
-          // movieRecomendations={recomendations ?? []}
+          movieDetail={detail ?? []} 
+          movieClips={clips ?? []}
+          movieRecomendations={recomendations ?? []}
         >
         </Modal>
     </S.Wrapper>

@@ -109,21 +109,21 @@ export function findTv(keyword: string | null) { // TV 프로그램 검색
 }
 
 // Movie +@TV Detail API
-export async function getDetail(part?: string, id?: number){ // 영화 +@TV 상세 정보 가져오기
+export async function getDetail(part?: string, id?: string){ // 영화 +@TV 상세 정보 가져오기
     return fetch(
         `${BASE_PATH}/${part}/${id}?api_key=${API_KEY}&language=ko-KR`
       ).then((response) => response.json());
 }
 
 // Movie +@TV Clicp API
-export async function getClipDetails(part?: string, id?: number){ // 영화 +@TV 클립 가져오기
+export async function getClipDetails(part?: string, id?: string){ // 영화 +@TV 클립 가져오기
     return await fetch(
         `${BASE_PATH}/${part}/${id}/videos?api_key=${API_KEY}`
         ).then((response) => response.json());
 }
 
 // Movie +@TV Trailer API
-export async function getTrailer(part?: string, id?: number){ // 영화 +@TV 예고편 가져오기
+export async function getTrailer(part?: string, id?: string){ // 영화 +@TV 예고편 가져오기
     return await (
         await fetch(
             `${BASE_PATH}/${part}/${id}/videos?api_key=${API_KEY}`
@@ -132,7 +132,7 @@ export async function getTrailer(part?: string, id?: number){ // 영화 +@TV 예
 }
 
 // Movie +@TV Recommend API
-export async function getRecommend(part?: string, id?: number){ // 영화 +@TV 추천 목록 가져오기
+export async function getRecommend(part?: string, id?: string){ // 영화 +@TV 추천 목록 가져오기
     return await fetch(
         `${BASE_PATH}/${part}/${id}/recommendations?api_key=${API_KEY}`
         ).then((response) => response.json());

@@ -111,7 +111,7 @@ export function findTv(keyword: string | null) { // TV 프로그램 검색
 // Movie +@TV Detail API
 export async function getDetail(part?: string, id?: string){ // 영화 +@TV 상세 정보 가져오기
     return fetch(
-        `${BASE_PATH}/${part}/${id}?api_key=${API_KEY}&language=ko-KR`
+        `${BASE_PATH}/${part}/${id}?api_key=${API_KEY}`
       ).then((response) => response.json());
 }
 

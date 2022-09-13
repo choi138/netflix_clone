@@ -1,6 +1,9 @@
 import { useEffect, useState } from "react";
 import {getTrailer} from "../../../Api/api";
 import * as S from "./TrailerStyle"
+import { VolumeOff, VolumeUp } from "@mui/icons-material";
+
+
 
 interface IGetTrailer{
     id?: string;
@@ -21,6 +24,7 @@ interface IVideo{
 }
 
 function TrailerVideo({part, id}: IGetTrailer){
+    const [volume, setVolume] = useState(true);
     const [videoKey, setVideoKey] = useState("");
     useEffect(() => {
         (async () => {
@@ -34,18 +38,32 @@ function TrailerVideo({part, id}: IGetTrailer){
             setVideoKey(videoKey);
         })();
     },[id])
+    
+    const handleVolume = () => {
+        setVolume((prev) => !prev);
+    }
     return (
         <>
             {videoKey ? (
                 <S.Wrapper>
-                    <iframe
-                    src={`https://www.youtube.com/embed/${videoKey}?autoplay=1&controls=0&rel=0`}
-                    title="YouTube video player"
-                    frameBorder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    />
-                    <S.ModalTitleWrapper/>
-                </S.Wrapper>
+                    <S.VideoWrapper>
+                <S.Player
+                url={`https://www.youtube.com/embed/${videoKey}?autoplay=1`}
+                muted={volume ? true : false}
+                playing={true}
+                controls={false}
+                frameBorder="0"
+                style={{none: "none"}}
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                />
+                </S.VideoWrapper>
+                    {volume ? (
+                    <S.Volum as={VolumeOff} onClick={handleVolume} />
+                    ) : (
+                     <S.Volum as={VolumeUp} onClick={handleVolume} />
+                    )}
+                    <S.ModalTitle/>
+                    </S.Wrapper>
             ): null } 
         </>
     )

@@ -1,25 +1,41 @@
 import styled from "styled-components";
+import ReactPlayer from "react-player";
 
 export const Wrapper = styled.div`
-    position: relative;
-    width: calc(100% + 2px);
-    right: 0;
-    left: 0;
-    top: 0;
-    height: calc(100vh - 48px);
-    object-fit: contain; // object-fit은 이미지의 크기를 조절할 때 사용한다.
-    iframe {
-        position: relative;
-        width: 100%;
-        height: 100%;
-    }
+    border: 1px solid red;
+    /* display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    flex-wrap: wrap; */
 `;
 
-export const ModalTitleWrapper = styled.div`
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 100%;
-    background-color: rgba(0,0,0,0.5);
+export const VideoWrapper = styled.div`
+    background-color: black;
+    border: 1px solid white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+`;
+
+export const Player = styled(ReactPlayer)`
+`;
+
+export const Volum = styled.svg`
+    border: 1px solid white;
+    position: relative;
+    width: 100px;
+    bottom: 10px;
+`;
+
+export const ModalTitle = styled.div`
+    border: 1px solid red;
+  position: absolute;
+  top: 5;
+  left: 0;
+  right: 0;
+  height: 70%;
+  background: linear-gradient(0deg, #181818, transparent 50%);
 `;

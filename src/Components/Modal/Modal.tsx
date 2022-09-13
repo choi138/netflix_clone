@@ -1,4 +1,5 @@
 import { AnimatePresence } from "framer-motion";
+import { MdClose } from "react-icons/md";
 import { PathMatch, useLocation, useMatch, useNavigate, useParams } from "react-router-dom"; // useMatch는 현재 url의 path를 가져온다.
 import { useRecoilState } from "recoil";
 import {IMovieRecommendations, IMovieDetail} from "../../Api/api";
@@ -42,12 +43,11 @@ function Modal({ movieDetail, movieClips, movieRecomendations }: IModalData) {
                <AnimatePresence>
                     {bigModalMatch ? (
                          <>
-                         <h1 style={{color:"yellow"}}>Hello</h1>
-                              <S.Overlay
-                              exit={{ opacity: 0 }}
-                              animate={{ opacity: 1 }}
-                              initial={{ opacity: 0 }}
-                              transition={{type: "tween", duration: 0.3}}
+                              <S.Overlay 
+                              exit={{ opacity: 0 }} // opacity는 투명도를 의미한다.
+                              animate={{ opacity: 1 }} 
+                              initial={{ opacity: 0 }} 
+                              transition={{type: "tween", duration: 0.3}} 
                               />
                               <S.ModalContainer>
                                    <S.ModalDialog
@@ -57,17 +57,17 @@ function Modal({ movieDetail, movieClips, movieRecomendations }: IModalData) {
                                    transition={{type: "tween", duration: 0.5}}
                                    >
                                         <S.ModalHeader
-                                        bgPhoto={makeImagePath(
-                                             movieDetail?.backdrop_path || movieDetail?.poster_path //
-                                        )}
+                                        // bgPhoto={makeImagePath(
+                                        //      movieDetail?.backdrop_path || movieDetail?.poster_path //
+                                        // )}
                                         >
                                              <div className="video">
                                                   <TrailerVideo part={part} id={id}/>
                                              </div>
                                         </S.ModalHeader>
-                                        <CloseButton>
-                                             
-                                        </CloseButton>
+                                        <S.CloseButton onClick={onModalClose}>
+                                             <MdClose size="25px"/>
+                                        </S.CloseButton>
                                    </S.ModalDialog>
                               </S.ModalContainer>
                          </>

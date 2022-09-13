@@ -50,4 +50,6 @@ export const ModalHeader = styled.div<{bgPhoto? : string}>`
     background-size: cover;
 `;
 
-export const CloseButton = styled.div``;
+export const CloseButton = styled.div`
+    position: absolute;
+`;

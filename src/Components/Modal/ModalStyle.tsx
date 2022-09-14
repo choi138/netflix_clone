@@ -51,5 +51,16 @@ export const ModalHeader = styled.div<{bgPhoto? : string}>`
 `;
 
 export const CloseButton = styled.div`
+    /* border: 1px solid red; */
+    margin: 10px;
     position: absolute;
+    top: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+`;
+
+export const DetailModal = styled.div`
+    
 `;

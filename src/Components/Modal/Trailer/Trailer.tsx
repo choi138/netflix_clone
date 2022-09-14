@@ -46,21 +46,20 @@ function TrailerVideo({part, id}: IGetTrailer){
         <>
             {videoKey ? (
                 <S.Wrapper>
-                    <S.VideoWrapper>
                 <S.Player
-                url={`https://www.youtube.com/embed/${videoKey}?autoplay=1`}
+                url={`https://www.youtube.com/embed/${videoKey}?autoplay=1&controls=0&rel=0`}
                 muted={volume ? true : false}
                 playing={true}
                 controls={false}
                 frameBorder="0"
-                style={{none: "none"}}
+                width="100%"
+                height="420px"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 />
-                </S.VideoWrapper>
                     {volume ? (
-                    <S.Volum as={VolumeOff} onClick={handleVolume} />
+                    <S.VolumDiv><S.Volum as={VolumeOff} onClick={handleVolume} /></S.VolumDiv>
                     ) : (
-                     <S.Volum as={VolumeUp} onClick={handleVolume} />
+                        <S.VolumDiv><S.Volum as={VolumeUp} onClick={handleVolume} /></S.VolumDiv>
                     )}
                     <S.ModalTitle/>
                     </S.Wrapper>

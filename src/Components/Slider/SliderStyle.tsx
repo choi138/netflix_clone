@@ -79,9 +79,9 @@ export const Wrap = styled.div`
   position: relative;
   text-align: left;
   display: flex;
-  /* justify-content: center; */
+  justify-content: center;
   flex-wrap: wrap;
-  width: 1500px;
+  width: 1600px;
 `
 
 export const TopWrap = styled(Wrap)`
@@ -90,6 +90,8 @@ export const TopWrap = styled(Wrap)`
 
 
 export const MovieBox = styled(motion.div)`
+  padding: 10px;
+  /* border: 1px solid red; */
     &:first-child {
     transform-origin: center left;
   }

@@ -55,6 +55,16 @@ export interface IMovieRecommendations{ // 영화 +@TV 추천 목록 인터페�
     total_results: number; // 전체 결과 수
 };
 
+export interface ICast{
+    name?: string; // 배우 이름
+    original_name?: string; // 배우 이름(원본)
+}
+export interface IMovieCredits{
+    id: number;
+    cast: ICast[]; // 배우 목록
+    crew: ICast[]; // 제작진 목록
+}
+
 
 //Movie API
 export function getNowPlayingMovies(){ // 현재 상영중인 영화 목록 가져오기
@@ -110,9 +120,11 @@ export function findTv(keyword: string | null) { // TV 프로그램 검색
 
 // Movie +@TV Detail API
 export async function getDetail(part?: string, id?: string){ // 영화 +@TV 상세 정보 가져오기
-    return fetch(
-        `${BASE_PATH}/${part}/${id}?api_key=${API_KEY}`
-      ).then((response) => response.json());
+    return await fetch(
+    //     `${BASE_PATH}/${part}/${id}?api_key=${API_KEY}`
+    //   ).then((response) => response.json());
+    `${BASE_PATH}/${part}/${id}/credits?api_key=${API_KEY}`
+        ).then((response) => response.json());
 }
 
 // Movie +@TV Clicp API
@@ -135,5 +147,12 @@ export async function getTrailer(part?: string, id?: string){ // 영화 +@TV 예
 export async function getRecommend(part?: string, id?: string){ // 영화 +@TV 추천 목록 가져오기
     return await fetch(
         `${BASE_PATH}/${part}/${id}/recommendations?api_key=${API_KEY}`
+        ).then((response) => response.json());
+};
+
+export async function getMovieCredits(part?: string, id?: string){ // 영화 +@TV 추천 목록 가져오기
+    // console.log(part, id);
+    return await fetch(
+        `${BASE_PATH}/${part}/${id}/credits?api_key=${API_KEY}`
         ).then((response) => response.json());
 };

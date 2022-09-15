@@ -1,7 +1,7 @@
 import { MdClose } from "react-icons/md";
 import { PathMatch, useLocation, useMatch, useNavigate, useParams } from "react-router-dom"; // useMatch는 현재 url의 path를 가져온다.
 import { useRecoilState } from "recoil";
-import { IMovieRecommendations, IMovieDetail } from "../../Api/api";
+import { IMovieRecommendations, IMovieDetail, IMovieCredits, ICast } from "../../Api/api";
 import { makeImagePath } from "../../Api/utilities";
 import { modalState } from "../../atom";
 import * as S from "./ModalStyle";
@@ -11,11 +11,12 @@ import { AnimatePresence, motion } from "framer-motion";
 interface IModalData {
   children?: any;
   movieDetail: IMovieDetail;
+  movieCredits: ICast[];
   movieClips?: [string];
   movieRecomendations?: IMovieRecommendations;
 }
 
-function Modal({ movieDetail, movieClips, movieRecomendations }: IModalData) {
+function Modal({ movieDetail, movieClips, movieRecomendations, movieCredits }: IModalData) {
   const bigModalMatch: PathMatch<string> | null = useMatch("/:part/:sliderPart/:id");
   const part = bigModalMatch?.params.part;
   const id = bigModalMatch?.params.id;

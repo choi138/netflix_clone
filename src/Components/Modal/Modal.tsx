@@ -71,16 +71,61 @@ function Modal({ movieDetail, movieClips, movieRecomendations, movieCredits }: I
                 </S.CloseButton>
                 <S.DetailModal>
                   <S.ModalSection>
-                    <S.DetailWrap>
+                    <S.DetailLeft>
                       {" "}
                       <S.DetailData>
                         <S.RealeaseDate>
                           {part === "movie" ?
                             movieDetail.release_date :
                             movieDetail.first_air_date}
+                          {/* {movieCredits.slice(0, 4).map((cast, key) => (
+                            <S.Cast key={key}>{cast.name}</S.Cast>
+                          ))} */}
                         </S.RealeaseDate>
+                        <S.Runtime>
+                          {part === "movie" ?
+                            `${movieDetail.runtime} minutes` :
+                            `${movieDetail.episode_run_time} minutes`}
+                        </S.Runtime>
+                        <S.HD>
+                          HD
+                        </S.HD>
                       </S.DetailData>
-                    </S.DetailWrap>
+                      <S.TagLine>
+                        {movieDetail?.tagline}
+                      </S.TagLine>
+                      <S.OverView>
+                        {movieDetail?.overview}
+                      </S.OverView>
+                    </S.DetailLeft>
+                    <S.DetailRight>
+                      <S.ModalTags>
+                        Title:
+                        <S.Title>{movieDetail.title}</S.Title>
+                      </S.ModalTags>
+                      <S.ModalTags>
+                        Cast:
+                        <S.Cast>
+                          {movieCredits.slice(0, 4).map
+                            ((cast: any) => cast.name).join(", ")}
+                        </S.Cast>
+                      </S.ModalTags>
+                      <S.ModalTags>
+                        <S.Genres>Genres:</S.Genres>
+                        {movieDetail?.genres?.length ? (
+
+                          <S.Genre>
+                            {(movieDetail.genres || []).map
+                              ((genre: any) => genre.name).join(", ")}
+                          </S.Genre>
+
+                        ) : null}
+                      </S.ModalTags>
+                      <S.ModalTags>
+                        Rating:
+                        <S.Rating>{movieDetail.vote_average}</S.Rating>
+                      </S.ModalTags>
+                    </S.DetailRight>
                   </S.ModalSection>
                 </S.DetailModal>
               </S.ModalDialog>

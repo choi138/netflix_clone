@@ -69,21 +69,20 @@ export const DetailModal = styled.div`
 `;
 
 export const ModalSection = styled.section`
-    border: 1px solid red;
+    /* border: 1px solid red; */
     width: 100%;
     display: grid;
     grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
     column-gap: 2em; // column-gap : 열 사이의 간격을 설정한다.
 `;
 
-export const DetailWrap = styled.div`
-    border: 1px solid white;
+export const DetailLeft = styled.div`
+    /* border: 1px solid white; */
 `;
 
 export const DetailData = styled.div`
-    border: 1px solid green;
+    /* border: 1px solid green; */
     margin: 0.8em 0;
-    /* color: #DAA03D; */
     display: flex;
     align-items: center;
     flex-wrap: wrap;
@@ -92,7 +91,81 @@ export const DetailData = styled.div`
 `;
 
 export const RealeaseDate = styled.div`
-    margin-right: 0.5em;
+    margin-right: 0.8em;
     font-weight: 600;
+    color: #E10600FF;
+`;
+
+export const Runtime = styled.div`
     color: #F2AA4C;
+    margin-right: 0.8em;
+`;
+
+export const HD = styled.span`
+    color: #DAA03D;
+    border: 1px solid hsla(0, 0%, 100%, 0.4); //hsla는 색상, 채도, 명도, 투명도를 의미한다.
+    border-radius: 3px;
+    font-size: 0.8em; 
+    padding: 0.05em 0.5em;
+    white-space: nowrap; //white-space는 공백을 어떻게 처리할지를 정한다.
+`;
+
+export const TagLine = styled.p`
+    font-size: 15px;
+    line-height: 25px; 
+    margin-top: 1em;
+    color: #F2AA4C;
+    font-style: italic;
+    border-bottom: 1px solid #DAA03D;
+`;
+
+export const OverView = styled.p`
+    font-size: 15px;
+    font-weight: 350;
+    line-height: 25px;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    color: #F2AA4C;
+`;
+
+export const DetailRight = styled.div`
+    /* border: 1px solid white; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex-wrap: wrap;
+`;
+
+export const ModalTags = styled.div`  
+    font-size: 14px;
+    line-height: 20px;
+    margin-top: 0.5em;
+    font-weight: 400;
+    color: #a68142;
+    word-break: break-word; //word-break는 단어가 줄바꿈 되는 위치를 정한다.
+    span{
+        opacity: 1;
+        /* color: #F2AA4C; */
+        margin-right: 0.5em;
+    }
+`;
+
+export const Cast = styled.span` 
+    color: #F2AA4C;
+    font-weight: 400;
+`;
+
+export const Genres = styled.span``;
+
+export const Genre = styled(Cast)`  
+`;
+
+export const Rating = styled(Cast)`
+        margin-left: 0.5em;
+`;
+
+export const Title = styled.span`
+    color: #F2AA4C;
+    font-weight: 400;
+    margin-left: 0.5em;
 `;

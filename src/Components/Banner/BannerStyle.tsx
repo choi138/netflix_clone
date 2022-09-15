@@ -26,7 +26,7 @@ export const Mainhome = styled.div<{ bgPhoto: string }>` // 이미지 칸을 만
     url(${(props) => props.bgPhoto});
     
   background-size: cover;
-`; 
+`;
 
 export const TitleLayer = styled.div` // 이미지 제목을 넣을 칸을 만들어준다.
     margin-left: 30px;
@@ -63,7 +63,7 @@ export const Info = styled.div`
 
 export const InfoFristText = styled.div`
     font-weight: 600;
-    color: #101820;
+    color: #E10600FF;
     margin-right: 20px;
 `;
 

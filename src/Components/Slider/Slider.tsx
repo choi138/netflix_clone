@@ -1,5 +1,5 @@
 import { useState } from "react";
-import {useRecoilState} from "recoil";
+import { useRecoilState } from "recoil";
 import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from "react-icons/md";
 import { useNavigate } from "react-router-dom";
 import { IMovie } from "../../Api/api";
@@ -11,22 +11,22 @@ import { makeImagePath } from "../../Api/utilities";
 
 const rowVariants = {
     hidden: ({ prev }: { prev: boolean }) => ({
-      x: prev ? "100vw" : "-100vw",
+        x: prev ? "100vw" : "-100vw",
     }),
     visible: {
-      x: 0,
+        x: 0,
     },
     exit: ({ prev }: { prev: boolean }) => ({
-      x: prev ? "100vw" : "-100vw",
+        x: prev ? "100vw" : "-100vw",
     }),
-  };
+};
 
 const movieBoxVariants = {
-    normal:{
+    normal: {
         scale: 1, // scale은 요소의 크기를 조절한다.
     },
-    hover:{
-        scale: 1.3, 
+    hover: {
+        scale: 1.3,
         y: -30, // y축으로 -30만큼 이동한다.
         transition: {
             delay: 0.5, // 0.5초 뒤에 실행한다.
@@ -38,7 +38,7 @@ const movieBoxVariants = {
 }
 
 const infoVariants = {
-    hover:{
+    hover: {
         opacity: 1, // opacity는 요소의 투명도를 조절한다.
         transition: {
             delay: 0.5, // 0.5초 뒤에 실행한다.
@@ -57,16 +57,16 @@ interface IData {
     part: string;
 }
 
-function Slider({id, title, movies, part}: IData) {
+function Slider({ id, title, movies, part }: IData) {
     const [index, setIndex] = useState(0);
     const [sliderMoving, setSliderMoving] = useState(false);
     const [sliderMovingPrev, setSliderMovingPrev] = useState(false);
 
-    const totalMovies = movies?.length-1;
-    const maxIndex = Math.floor(totalMovies/offset) -1; 
+    const totalMovies = movies?.length - 1;
+    const maxIndex = Math.floor(totalMovies / offset) - 1;
     // slider + 1
     const increaseIndex = () => {
-        if(!sliderMoving && movies) { // 만약 슬라이더가 움직이고 있지 않고 영화가 존재한다면
+        if (!sliderMoving && movies) { // 만약 슬라이더가 움직이고 있지 않고 영화가 존재한다면
             setSliderMoving(true); // 슬라이더 움직임을 true로 변경
             setSliderMovingPrev(false); // 슬라이더 움직임을 true로 변경
             setIndex((prev) => (prev === maxIndex ? 0 : prev + 1)); // maxIndex가 index와 같다면 0으로 변경하고 아니라면 index + 1
@@ -75,10 +75,10 @@ function Slider({id, title, movies, part}: IData) {
     };
     // slider - 1
     const decreaseIndex = () => {
-        if(!sliderMoving && movies) { // 만약 슬라이더가 움직이고 있지 않고 영화가 존재한다면
+        if (!sliderMoving && movies) { // 만약 슬라이더가 움직이고 있지 않고 영화가 존재한다면
             setSliderMoving(false); // 슬라이더 움직임을 true로 변경
             setSliderMovingPrev(true); // 슬라이더 움직임을 true로 변경
-            setIndex((prev) => (prev === maxIndex ? prev - 1 : 0)); 
+            setIndex((prev) => (prev === maxIndex ? prev - 1 : 0));
         }
     }
     // slider done
@@ -88,59 +88,59 @@ function Slider({id, title, movies, part}: IData) {
     };
     const [isModalActive, setIsModalActive] = useRecoilState(modalState); // useRecoilState은 atom의 값을 가져오는 hook이다.
     const history = useNavigate(); //useNavigate는 history를 사용할 수 있게 해준다. history는 브라우저의 기록을 관리한다.
-    const onBoxClick = (part:string, id:number, sliderId: string) => {
+    const onBoxClick = (part: string, id: number, sliderId: string) => {
         history(`/${part}/${sliderId}/${id}`); // history를 사용해서 url을 조작한다.
-        setIsModalActive(true); 
+        setIsModalActive(true);
     };
-    return(
+    return (
         <S.SliderWrapper>
             <S.Wrap>
-            <S.SliderTitle>{title}</S.SliderTitle>
-            <AnimatePresence
-            custom={{prev: sliderMovingPrev}} // custom={{prev: sliderMovingPrev}}는 슬라이더가 이전으로 움직이는지 다음으로 움직이는지를 알려준다.
-            initial={false} // 초기값을 false로 설정
-            onExitComplete={onExitCompleteSlider} // 슬라이더가 사라지고 나서 실행할 함수
-            > 
-            <S.Row
-            variants={rowVariants}
-            initial="hidden" // 초기값을 hidden으로 설정
-            animate="visible" // 실행될 애니메이션을 visible로 설정
-            exit="exit" // 사라질 애니메이션을 exit로 설정
-            custom={{prev: sliderMoving}} // custom={{prev: sliderMoving}}는 슬라이더가 이전으로 움직이는지 다음으로 움직이는지를 알려준다.
-            transition={{type: "tween",duration: 0.6}} // 애니메이션의 시간을 0.5로 설정;
-            key={index} // key값을 index로 설정
-            >
-            {index === 0 ? null : (
-                <S.ArrowBox onClick={decreaseIndex}>
-                    <MdKeyboardArrowLeft size="60px" />
-                </S.ArrowBox>
-            )}
-            <S.RightArrow onClick={increaseIndex}>
-                <MdKeyboardArrowRight size="60px" />
-            </S.RightArrow>
-                {movies
-                ?.slice(1)
-                .slice(offset * index, offset * index + offset).map((movie) => (
-                    <S.MovieBox
-                    variants={movieBoxVariants}
-                    initial="normal"
-                    whileHover="hover"
-                    transition={{type: "tween"}}
-                    onClick={() => {onBoxClick(part, movie.id, id)}}
-                    key={movie.id}
+                <S.SliderTitle>{title}</S.SliderTitle>
+                <AnimatePresence
+                    custom={{ prev: sliderMovingPrev }} // custom={{prev: sliderMovingPrev}}는 슬라이더가 이전으로 움직이는지 다음으로 움직이는지를 알려준다.
+                    initial={false} // 초기값을 false로 설정
+                    onExitComplete={onExitCompleteSlider} // 슬라이더가 사라지고 나서 실행할 함수
+                >
+                    <S.Row
+                        variants={rowVariants}
+                        initial="hidden" // 초기값을 hidden으로 설정
+                        animate="visible" // 실행될 애니메이션을 visible로 설정
+                        exit="exit" // 사라질 애니메이션을 exit로 설정
+                        custom={{ prev: sliderMoving }} // custom={{prev: sliderMoving}}는 슬라이더가 이전으로 움직이는지 다음으로 움직이는지를 알려준다.
+                        transition={{ type: "tween", duration: 0.6 }} // 애니메이션의 시간을 0.5로 설정;
+                        key={index} // key값을 index로 설정
                     >
-                        <img src={makeImagePath(movie.poster_path, "w500" )} />
-                        <S.MovieBoxInfo variants={infoVariants}>
-                            {part === "movie" ? (
-                                <S.Moviename>{movie.title}</S.Moviename>
-                            ): (
-                                <S.Moviename>{movie.name}</S.Moviename>
-                            )}
-                        </S.MovieBoxInfo>
-                    </S.MovieBox>
-                ))}
-            </S.Row>
-            </AnimatePresence>
+                        {index === 0 ? null : (
+                            <S.ArrowBox onClick={decreaseIndex}>
+                                <MdKeyboardArrowLeft size="60px" />
+                            </S.ArrowBox>
+                        )}
+                        <S.RightArrow onClick={increaseIndex}>
+                            <MdKeyboardArrowRight size="60px" />
+                        </S.RightArrow>
+                        {movies
+                            ?.slice(1)
+                            .slice(offset * index, offset * index + offset).map((movie) => (
+                                <S.MovieBox
+                                    variants={movieBoxVariants}
+                                    initial="normal"
+                                    whileHover="hover"
+                                    transition={{ type: "tween" }}
+                                    onClick={() => { onBoxClick(part, movie.id, id) }}
+                                    key={movie.id}
+                                >
+                                    <img src={makeImagePath(movie.poster_path, "w500")} />
+                                    <S.MovieBoxInfo variants={infoVariants}>
+                                        {part === "movie" ? (
+                                            <S.Moviename>{movie.title}</S.Moviename>
+                                        ) : (
+                                            <S.Moviename>{movie.name}</S.Moviename>
+                                        )}
+                                    </S.MovieBoxInfo>
+                                </S.MovieBox>
+                            ))}
+                    </S.Row>
+                </AnimatePresence>
             </S.Wrap>
         </S.SliderWrapper>
     );

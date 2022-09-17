@@ -7,6 +7,7 @@ import { modalState } from "../../atom";
 import * as S from "./ModalStyle";
 import TrailerVideo from "./Trailer/Trailer";
 import { AnimatePresence, motion } from "framer-motion";
+import { getYoutubeVideoUrl } from "../../Api/utils";
 
 interface IModalData {
   children?: any;
@@ -126,6 +127,20 @@ function Modal({ movieDetail, movieClips, movieRecomendations, movieCredits }: I
                         <S.Rating>{movieDetail.vote_average}</S.Rating>
                       </S.ModalTags>
                     </S.DetailRight>
+                  </S.ModalSection>
+                  <S.ModalSection>
+                    <S.ModalFooter>
+                      <S.Clip>CLIPS</S.Clip>
+                      <S.ClipsWrap>
+                        {movieClips?.map((clip: any, key: any) => (
+                          <S.ClipUrl
+                            key={key}
+                            href={getYoutubeVideoUrl(clip.key)}>
+
+                          </S.ClipUrl>
+                        ))}
+                      </S.ClipsWrap>
+                    </S.ModalFooter>
                   </S.ModalSection>
                 </S.DetailModal>
               </S.ModalDialog>

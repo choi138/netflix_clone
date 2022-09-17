@@ -151,6 +151,7 @@ export const ModalTags = styled.div`
 `;
 
 export const Cast = styled.span` 
+    /* font-size: 16px; */
     color: #F2AA4C;
     font-weight: 400;
 `;
@@ -168,4 +169,37 @@ export const Title = styled.span`
     color: #F2AA4C;
     font-weight: 400;
     margin-left: 0.5em;
+`;
+
+export const ModalFooter = styled.div`
+    border: 1px solid blueviolet;
+`;
+
+export const Clip = styled.h3`
+    font-size: 22px;
+    font-weight: 600;
+    color: #F2AA4C;
+    margin-bottom: 20px;
+    margin-top: 48px;
+`;
+
+export const ClipsWrap = styled.div`
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    flex-direction: column;
+`;
+
+export const ClipUrl = styled.a`    
+    position: relative;
+    align-items: center;
+    border-bottom: 1px solid #DAA03D;
+    display: flex;
+    overflow: hidden; 
+    padding: 1em;
+    border: 1px solid red;
+`;
+
+export const ClipImg = styled.div`
+
 `;

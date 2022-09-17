@@ -1,4 +1,4 @@
-import { MdClose } from "react-icons/md";
+import { MdClose, MdPlayArrow } from "react-icons/md";
 import { PathMatch, useLocation, useMatch, useNavigate, useParams } from "react-router-dom"; // useMatch는 현재 url의 path를 가져온다.
 import { useRecoilState } from "recoil";
 import { IMovieRecommendations, IMovieDetail, IMovieCredits, ICast } from "../../Api/api";
@@ -7,7 +7,7 @@ import { modalState } from "../../atom";
 import * as S from "./ModalStyle";
 import TrailerVideo from "./Trailer/Trailer";
 import { AnimatePresence, motion } from "framer-motion";
-import { getYoutubeVideoUrl } from "../../Api/utils";
+import { getYoutubeImg, getYoutubeVideoUrl } from "../../Api/utils";
 
 interface IModalData {
   children?: any;
@@ -132,11 +132,18 @@ function Modal({ movieDetail, movieClips, movieRecomendations, movieCredits }: I
                     <S.ModalFooter>
                       <S.Clip>CLIPS</S.Clip>
                       <S.ClipsWrap>
-                        {movieClips?.map((clip: any, key: any) => (
+                        {movieClips?.map((clip: any, index: any, key: any) => (
                           <S.ClipUrl
                             key={key}
                             href={getYoutubeVideoUrl(clip.key)}>
-
+                            <S.ClipIndex>{index + 1}</S.ClipIndex>
+                            <S.ClipImg
+                              coverImg={getYoutubeImg(clip.key)}
+                            >
+                              <S.ClipIcon>
+                                <MdPlayArrow size="48px" />
+                              </S.ClipIcon>
+                            </S.ClipImg>
                           </S.ClipUrl>
                         ))}
                       </S.ClipsWrap>

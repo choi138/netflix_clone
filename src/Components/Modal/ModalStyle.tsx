@@ -190,6 +190,19 @@ export const ClipsWrap = styled.div`
     flex-direction: column;
 `;
 
+export const ClipIcon = styled.div`
+    visibility: hidden;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid white;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 50%;
+    /* transition: all 0.3s ease-in-out; */
+  transition: all 0.2s linear;
+`;
+
 export const ClipUrl = styled.a`    
     position: relative;
     align-items: center;
@@ -198,8 +211,33 @@ export const ClipUrl = styled.a`
     overflow: hidden; 
     padding: 1em;
     border: 1px solid red;
+    &:hover{
+        color: #333;
+        ${ClipIcon} {
+            visibility: visible;
+        }
+    }
 `;
 
-export const ClipImg = styled.div`
+export const ClipIndex = styled.div`
+    color: #d2d2d2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 5%;
+    font-size: 1.3em;
+    font-weight: 400;
+`;
 
+export const ClipImg = styled.div<{ coverImg?: string }>`
+    background: url(${(props) => props.coverImg});
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 16px;
+    flex: none;
+    width: 130px;
+    height: 100px;
+    /* border: 1px solid red; */
 `;

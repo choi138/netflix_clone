@@ -7,7 +7,8 @@ export const Overlay = styled(motion.div)`
     top: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.7);
+    /* background-color: rgba(0, 0, 0, 0.7); */
+    
     /* background-color: #101820; */
     z-index: 100; 
 `;

@@ -121,7 +121,7 @@ function Home() {
             </S.Wrap>
 
             <S.TvWrap>
-              <S.Title>TV</S.Title>
+              <S.TitleWrap><S.Title>TV</S.Title></S.TitleWrap>
               <Slider
                 id="nowPlayingData"
                 movies={tvAiring?.results ?? []}

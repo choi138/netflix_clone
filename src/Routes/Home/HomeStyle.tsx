@@ -24,7 +24,7 @@ export const SliderWrapper = styled.div`
 
 
 export const Wrap = styled.div`
-  border: 1px solid red;
+  /* border: 1px solid red; */
   margin-top: 100px;
   /* width: 1600px; */
 `;
@@ -35,17 +35,18 @@ export const TvWrap = styled.div`
 
 export const TitleWrap = styled.div`
   display: flex;
+  width: 100%;
   justify-content: center;
   align-items: center;
 `;
 
-export const Title = styled.h2`
+export const Title = styled.div`
   border-bottom: 1px solid #F2AA4C;
-width: 100%;
+width: 1600px;
   /* text-decoration: underline; */
   color: #F2AA4C;
   /* color: #DAA03D; */
   font-weight: 700;
   font-size: 1.5rem;
-  margin-left: 30px;
+  margin: 0 30px;
 `;

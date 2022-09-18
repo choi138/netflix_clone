@@ -7,8 +7,7 @@ export const Overlay = styled(motion.div)`
     top: 0;
     width: 100%;
     height: 100%;
-    /* background-color: rgba(0, 0, 0, 0.7); */
-    
+    background-color: rgba(0, 0, 0, 0.7);
     /* background-color: #101820; */
     z-index: 100; 
 `;
@@ -173,10 +172,11 @@ export const Title = styled.span`
 `;
 
 export const ModalFooter = styled.div`
-    border: 1px solid blueviolet;
+    /* border: 1px solid blueviolet; */
 `;
 
-export const Clip = styled.h3`
+export const ModalTitle = styled.h3`
+    /* border: 1px solid blue; */
     font-size: 22px;
     font-weight: 600;
     color: #F2AA4C;
@@ -192,16 +192,15 @@ export const ClipsWrap = styled.div`
 `;
 
 export const ClipIcon = styled.div`
-    visibility: hidden;
     color: white;
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 1px solid white;
-    background-color: rgba(0, 0, 0, 0.5);
+    /* border: 1px solid white; */
+    background-color: rgba(0, 0, 0, 0.5); 
+    opacity: 0;
     border-radius: 50%;
-    /* transition: all 0.3s ease-in-out; */
-  transition: all 0.2s linear;
+  transition:  opacity 0.2s ease-in;
 `;
 
 export const ClipUrl = styled.a`    
@@ -211,11 +210,12 @@ export const ClipUrl = styled.a`
     display: flex;
     overflow: hidden; 
     padding: 1em;
-    border: 1px solid red;
+    /* border: 1px solid red; */
     &:hover{
-        color: #333;
+        background-color: #333;
         ${ClipIcon} {
-            visibility: visible;
+            /* visibility: visible; */
+            opacity: 1;
         }
     }
 `;
@@ -242,3 +242,96 @@ export const ClipImg = styled.div<{ coverImg?: string }>`
     height: 100px;
     /* border: 1px solid red; */
 `;
+
+export const ClipInfo = styled.div`
+    /* border: 1px solid red; */
+    height: 45px;
+    font-size: 0.95em;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+`;
+
+export const ClipTitle = styled.p`
+    font-size: 16px;
+    font-weight: 600;
+    overflow: anywhere; //overflow anywhere는 줄바꿈이 되지 않는다.
+`;
+
+export const ClipDate = styled.span`
+    font-size: 14px;
+    color: #d2d2d2;
+    font-weight: 300;
+`;
+
+export const RecommendWrap = styled.div`
+    /* border: 1px solid red; */
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); //repeat(4, 1fr)은 4개의 열을 만들고 각 열의 너비를 1fr로 설정한다.
+    grid-gap: 1em;
+    align-items: stretch; // stretch는 열의 높이를 자식 요소의 높이에 맞춘다.
+    justify-content: stretch;
+`;
+
+export const RecommendImg = styled.img`
+`;
+
+export const RecommendInfo = styled(motion.div)`
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    height: 220px;
+    justify-content: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+    background-color: #2f2f2f;
+    /* border: 1px solid red; */
+    position: absolute;
+    width: 100%;
+    /* padding: 0 10px; */
+`;
+
+export const RecommendTitle = styled.h4`
+    position: absolute;
+    top: 0;
+    width: 100%;
+    margin-top: 10px;
+    text-align: center;
+    font-size: 16px;
+    font-weight: 450;
+    /* border: 1px solid red; */
+`;
+
+export const RecommendDate = styled.span`
+    color: #46d369;
+    font-weight: 500;
+    margin-bottom: 10px;
+    /* border: 1px solid red; */
+    margin-left: 10px;
+`;
+
+export const RecommendSum = styled.span`
+    /* border: 1px solid red; */
+    color: #d2d2d2;
+    margin-bottom: 20px;
+    margin-left: 10px;
+`;
+
+export const RecommendMovie = styled.div`
+    /* border: 1px solid white; */
+    height: 500px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden; 
+    cursor: pointer;
+    &:hover{
+
+    }
+    ${RecommendImg}{
+        width: 100%;
+        border-radius: 5px;
+        }
+`;
+

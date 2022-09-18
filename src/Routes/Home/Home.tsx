@@ -71,7 +71,7 @@ function Home() {
   const { data: getClips } = useQuery(["clips", id], () => // movieClip은 getClip의 data를 받아온다.
     getClipDetails(part, id || "")
   );
-  const { data: recomendations } = useQuery(["movie", id], () => // movieRecommend은 getRecommend의 data를 받아온다.
+  const { data: recomendations } = useQuery(["movieRecommend", id], () => // movieRecommend은 getRecommend의 data를 받아온다.
     getRecommend(part, id || "")
   );
   const { data: credits } = useQuery<IMovieCredits>(["credits", id], () => // movieRecommend은 getRecommend의 data를 받아온다.

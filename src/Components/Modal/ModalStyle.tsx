@@ -29,11 +29,11 @@ export const ModalDialog = styled(motion.article)` //article은 문서의 구획
     margin: 24px auto;
     max-width: 900px;
     width: 100%;
-    height: calc(100vh - 3rem);
+    height: calc(100vh - 3rem); 
     box-shadow: rgb(0 0 0 / 75%) 0px 3px 10px;
     border-radius: 10px;
     background-color: #101820;
-    overflow: auto;
+    overflow: auto; 
     z-index: 103;
     &::-webkit-scrollbar { //스크롤바를 없애준다.
         display: none;

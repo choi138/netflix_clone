@@ -96,7 +96,7 @@ function Home() {
             movies={nowPlayingMovies?.results}></Banner>
           <S.SliderWrapper>
             <S.Wrap>
-              <S.Title>Movie</S.Title>
+              <S.TitleWrap><S.Title>Movie</S.Title></S.TitleWrap>
               <Slider
                 id="nowPlayingData"
                 movies={nowPlayingMovies?.results ?? []}

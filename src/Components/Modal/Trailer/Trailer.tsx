@@ -24,7 +24,7 @@ interface IVideo {
 }
 
 function TrailerVideo({ part, id }: IGetTrailer) {
-    const [volume, setVolume] = useState(true);
+    const [volume, setVolume] = useState(false);
     const [videoKey, setVideoKey] = useState("");
     useEffect(() => {
         (async () => {

@@ -6,6 +6,7 @@ export const Wrapper = styled.div`
   /* overflow-x: hidden; */
   background-color: #101820;
   height: 100vh;
+  width: 100%;
 `;
 
 export const Loader = styled.div`
@@ -18,16 +19,24 @@ export const SliderWrapper = styled.div`
   position: relative;
   top: -10px;
   min-width: 840px;
+  width: 100%;
 `;
 
 
 export const Wrap = styled.div`
-  /* border: 1px solid red; */
+  border: 1px solid red;
   margin-top: 100px;
+  /* width: 1600px; */
 `;
 
 export const TvWrap = styled.div`
   margin-top: 100px;
+`;
+
+export const TitleWrap = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 
 export const Title = styled.h2`

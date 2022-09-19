@@ -315,14 +315,16 @@ export const RecommendDate = styled.div`
 `;
 
 export const RecommendSum = styled.div`
+    position: absolute;
+    bottom: 0;
     border: 1px solid red;
     color: #d2d2d2;
-    /* margin-bottom: 20px; */
+    margin-bottom: 20px;
     /* margin-left: 10px; */
 `;
 
 export const RecommendMovie = styled.div`
-    /* border: 1px solid white; */
+    border: 1px solid white;
     height: 500px;
     position: relative;
     display: flex;

@@ -27,7 +27,7 @@ import Slider from "../../Components/Slider/Slider";
 import Modal from "../../Components/Modal/Modal";
 
 import { Link } from "react-router-dom";
-import * as S from "./HomeStyle";
+import * as S from "../Style";
 import { useEffect, useState } from "react";
 
 
@@ -105,14 +105,14 @@ function Home() {
                 part="movie"
               ></Slider>
               <Slider
-                id="nowPlayingData"
+                id="topRatedMovies"
                 movies={topRatedMovies?.results ?? []}
                 title="Now TOP 10(movie)"
                 query="topRatedMovies"
                 part="movie"
               ></Slider>
               <Slider
-                id="nowPlayingData"
+                id="upcomingMovies"
                 movies={upcomingMovies?.results ?? []}
                 title="UP Comming(movie)"
                 query="upcomingMovies"
@@ -123,21 +123,21 @@ function Home() {
             <S.TvWrap>
               <S.TitleWrap><S.Title>TV</S.Title></S.TitleWrap>
               <Slider
-                id="nowPlayingData"
+                id="tvAiring"
                 movies={tvAiring?.results ?? []}
                 title="Airing(tv)"
                 query="tvAiring"
                 part="tv"
               ></Slider>
               <Slider
-                id="nowPlayingData"
+                id="tvPopular"
                 movies={tvPopular?.results ?? []}
                 title="Now TOP 10(tv)"
                 query="tvPopular"
                 part="tv"
               ></Slider>
               <Slider
-                id="nowPlayingData"
+                id="tvTopRated"
                 movies={tvTopRated?.results ?? []}
                 title="TOP Rated(tv)"
                 query="tvTopRated"

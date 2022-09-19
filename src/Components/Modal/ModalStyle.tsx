@@ -172,11 +172,11 @@ export const Title = styled.span`
 `;
 
 export const ModalFooter = styled.div`
-    border: 1px solid blueviolet;
+    /* border: 1px solid blueviolet; */
 `;
 
 export const ModalTitle = styled.h3`
-    border: 1px solid blue;
+    /* border: 1px solid blue; */
     font-size: 22px;
     font-weight: 600;
     color: #F2AA4C;
@@ -265,7 +265,7 @@ export const ClipDate = styled.span`
 `;
 
 export const RecommendWrap = styled.div`
-    /* border: 1px solid red; */
+    /* border: 1px solid blue; */
     display: grid;
     grid-template-columns: repeat(4, 1fr); //repeat(4, 1fr)은 4개의 열을 만들고 각 열의 너비를 1fr로 설정한다.
     grid-gap: 1em;
@@ -274,6 +274,10 @@ export const RecommendWrap = styled.div`
 `;
 
 export const RecommendImg = styled.img`
+`;
+
+export const RecommendSlider = styled.div`
+    /* border: 10px solid white; */
 `;
 
 export const RecommendInfo = styled(motion.div)`
@@ -285,36 +289,36 @@ export const RecommendInfo = styled(motion.div)`
     flex-direction: column;
     flex-wrap: wrap;
     background-color: #2f2f2f;
-    /* border: 1px solid red; */
+    border: 1px solid red;
     position: absolute;
     width: 100%;
     /* padding: 0 10px; */
 `;
 
-export const RecommendTitle = styled.h4`
+export const RecommendTitle = styled.div`
     position: absolute;
     top: 0;
     width: 100%;
-    margin-top: 10px;
     text-align: center;
     font-size: 16px;
     font-weight: 450;
-    /* border: 1px solid red; */
+    padding-top: 10px;
+    border: 1px solid red;
 `;
 
-export const RecommendDate = styled.span`
+export const RecommendDate = styled.div`
     color: #46d369;
     font-weight: 500;
-    margin-bottom: 10px;
-    /* border: 1px solid red; */
-    margin-left: 10px;
+    /* margin-bottom: 10px; */
+    border: 1px solid red;
+    /* margin-left: 10px; */
 `;
 
-export const RecommendSum = styled.span`
-    /* border: 1px solid red; */
+export const RecommendSum = styled.div`
+    border: 1px solid red;
     color: #d2d2d2;
-    margin-bottom: 20px;
-    margin-left: 10px;
+    /* margin-bottom: 20px; */
+    /* margin-left: 10px; */
 `;
 
 export const RecommendMovie = styled.div`

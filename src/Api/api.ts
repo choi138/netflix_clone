@@ -15,6 +15,7 @@ export interface IMovie { // 영화 +@TV 인터페이스
     vote_count: number; // 평점 투표 수
     is_tv?: boolean; // TV 프로그램인지 여부
     name?: string; // TV 프로그램 제목
+    first_air_date?: string; // TV 프로그램 개봉일
 }
 
 export interface IGetMoviesResult { // 영화 +@TV 목록 인터페이스
@@ -83,6 +84,13 @@ export function getPopularMovies() { // 평점 높은 영화 목록 가져오기
 export function getUpcomingMovies() { // 개봉 예정 영화 목록 가져오기
     return (
         fetch(`${BASE_PATH}/movie/upcoming?api_key=${API_KEY}`)
+            .then(reponse => reponse.json())
+    )
+}
+
+export function getTopRatedMovies() { // 개봉 예정 영화 목록 가져오기
+    return (
+        fetch(`${BASE_PATH}/movie/top_rated?api_key=${API_KEY}`)
             .then(reponse => reponse.json())
     )
 }

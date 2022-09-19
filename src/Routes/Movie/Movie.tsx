@@ -9,12 +9,12 @@ import {
     getDetail,
     getClipDetails,
     getRecommend,
-    /* Tv */
-    getTvAiring,
-    getTvTopRated,
-    getTvPopular,
+    /* Movies*/
+    getNowPlayingMovies,
+    getPopularMovies,
+    getUpcomingMovies,
+    getTopRatedMovies,
     getMovieCredits,
-    getTvToday,
 
 } from "../../Api/api";
 
@@ -29,7 +29,7 @@ import { useEffect, useState } from "react";
 
 
 
-function TV() {
+function Movie() {
 
     // const location = useLocation() // 현재 url의 path를 가져온다.
     // const {part,id} = useParams<"part"|"id">() // useParams는 url의 파라미터를 가져온다.
@@ -41,17 +41,17 @@ function TV() {
     const part = bigMovieMatch?.params.part;
     //Tv
     // 현재 방영중인 Tv
-    const { data: tvAiring, isLoading: tvAiringLoading } = // tvAiring는 getTvAiring의 data를 받아온다.
-        useQuery<IGetMoviesResult>(["tvAiring", "tv"], getTvAiring);
+    const { data: playingMovie, isLoading: getNowPlayingMoviesLoading } = // tvAiring는 getTvAiring의 data를 받아온다.
+        useQuery<IGetMoviesResult>(["playingMovie", "movie"], getNowPlayingMovies);
     // 인기 Tv
-    const { data: tvPopular, isLoading: tvPopularLoading } = // tvPopular는 getTvPopular의 data를 받아온다.
-        useQuery<IGetMoviesResult>(["tvPopular", "tv"], getTvPopular);
+    const { data: popularMovies, isLoading: getPopularMoviesLoading } = // tvPopular는 getTvPopular의 data를 받아온다.
+        useQuery<IGetMoviesResult>(["popularMovies", "movie"], getPopularMovies);
     // 인기 Tv
-    const { data: tvTopRated, isLoading: tvTopRatedLoading } = // tvTopRated는 getTvTopRated의 data를 받아온다.
-        useQuery<IGetMoviesResult>(["tvTopRated", "tv"], getTvTopRated);
+    const { data: upcomingMovies, isLoading: getUpcomingMoviesLoading } = // tvTopRated는 getTvTopRated의 data를 받아온다.
+        useQuery<IGetMoviesResult>(["upcomingMovies", "movie"], getUpcomingMovies);
 
-    const { data: tvToday, isLoading: getTvTodayLoading } =
-        useQuery<IGetMoviesResult>(["getTvToday", "tv"], getTvToday);
+    const { data: topRatedMovie, isLoading: getTopRatedMoviesLoading } =
+        useQuery<IGetMoviesResult>(["topRatedMovie", "movie"], getTopRatedMovies);
 
     const { data: detail } = useQuery(["movie", id], () => // movieDetail은 getDetail의 data를 받아온다.
         getDetail(part, id || "")
@@ -66,7 +66,7 @@ function TV() {
         getMovieCredits(part, id || "")
     );
     const clips = getClips?.results?.slice(-3).reverse(); // clips는 movieClip의 results의 0번째부터 1번째까지의 데이터를 가져온다.
-    const isLoading = tvAiringLoading || tvPopularLoading || tvTopRatedLoading || false;
+    const isLoading = getNowPlayingMoviesLoading || getPopularMoviesLoading || getTopRatedMoviesLoading || false;
     // isLoading은 현재 상영중인 영화, 인기 영화, 개봉 예정 영화, 현재 방영중인 Tv, 인기 Tv가 모두 로딩이 끝나야 false가 된다.
 
     return (
@@ -80,40 +80,39 @@ function TV() {
                 <>
                     <Banner
                         id="banner"
-                        part="tv"
-                        movies={tvPopular?.results}></Banner>
+                        part="movie"
+                        movies={popularMovies?.results}></Banner>
                     <S.SliderWrapper>
                         <S.Wrap>
-                            <S.TitleWrap><S.Title>Tv</S.Title></S.TitleWrap>
+                            <S.TitleWrap><S.Title>Movie</S.Title></S.TitleWrap>
                             <Slider
-                                id="tvAiring"
-                                movies={tvAiring?.results ?? []}
-                                title="Tv Airing"
-                                query="tvAiring"
-                                part="tv"
+                                id="playingMovie"
+                                movies={playingMovie?.results ?? []}
+                                title="Now Playing"
+                                query="Now Playing"
+                                part="movie"
                             ></Slider>
                             <Slider
-                                id="tvPopular"
-                                movies={tvPopular?.results ?? []}
-                                title="Tv Popular"
-                                query="tvPopular"
-                                part="tv"
+                                id="upcomingMovies"
+                                movies={upcomingMovies?.results ?? []}
+                                title="Up Coming"
+                                query="Up Coming"
+                                part="movie"
                             ></Slider>
                             <Slider
-                                id="tvToday"
-                                movies={tvToday?.results ?? []}
-                                title="Tv Today"
-                                query="tvToday"
-                                part="tv"
+                                id="popularMovies"
+                                movies={popularMovies?.results ?? []}
+                                title="Popular"
+                                query="Popular"
+                                part="movie"
                             ></Slider>
                             <Slider
-                                id="tvTopRated"
-                                movies={tvTopRated?.results ?? []}
-                                title="Tv Rated"
-                                query="tvTopRated"
-                                part="tv"
+                                id="topRatedMovie"
+                                movies={topRatedMovie?.results ?? []}
+                                title="Top Rated"
+                                query="Top Rated"
+                                part="movie"
                             ></Slider>
-
                         </S.Wrap>
                     </S.SliderWrapper>
                 </>
@@ -128,4 +127,4 @@ function TV() {
         </S.Wrapper>
     )
 }
-export default TV;
+export default Movie;

@@ -1,4 +1,3 @@
-import { Movie } from "@mui/icons-material";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { createGlobalStyle } from 'styled-components'
 import Header from "./Components/Header/Header";
@@ -6,6 +5,7 @@ import Modal from "./Components/Modal/Modal";
 import Home from "./Routes/Home/Home";
 import Search from "./Routes/Search";
 import Tv from "./Routes/Tv/Tv";
+import Movie from "./Routes/Movie/Movie";
 
 const GlobalStyle = createGlobalStyle`
 `;

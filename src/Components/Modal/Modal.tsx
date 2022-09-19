@@ -144,11 +144,75 @@ function Modal({ movieDetail, movieClips, movieRecomendations, movieCredits }: I
                                 <MdPlayArrow size="48px" />
                               </S.ClipIcon>
                             </S.ClipImg>
+                            <S.ClipInfo>
+                              <S.ClipTitle>{clip.name}</S.ClipTitle>
+                              <S.ClipDate>
+                                {new Date(
+                                  clip.published_at
+                                ).toLocaleDateString()}
+                              </S.ClipDate>
+                            </S.ClipInfo>
                           </S.ClipUrl>
                         ))}
                       </S.ClipsWrap>
                     </S.ModalFooter>
                   </S.ModalSection>
+                  {recommend ? (
+                    <section>
+                      <div>
+                        <S.ModalTitle>More like contents</S.ModalTitle>
+                        <div>
+                          <S.RecommendWrap>
+                            {recommend?.map((recomend: any) => (
+                              <S.RecommendMovie
+                                key={recomend.id}
+                                onClick={() =>
+                                  onModalOpen(part, recomend.id, id)
+                                }
+                              >
+                                <S.RecommendSlider>
+                                  <div>
+                                    <S.RecommendImg
+                                      src={makeImagePath(
+                                        recomend.poster_path,
+                                        "w500"
+                                      )}
+                                    /></div>
+                                  <S.RecommendInfo>
+                                    {part === "movie" ? (
+                                      <>
+                                        <S.RecommendTitle>
+                                          {recomend.title}
+                                        </S.RecommendTitle>
+                                        <S.RecommendDate>
+                                          {recomend.release_date}
+                                        </S.RecommendDate>
+                                        <S.RecommendSum>
+                                          {recomend.overview.slice(0, 100)}
+                                        </S.RecommendSum>
+                                      </>
+                                    ) : (
+                                      <>
+                                        <S.RecommendTitle>
+                                          {recomend.name}
+                                        </S.RecommendTitle>
+                                        <S.RecommendDate>
+                                          {recomend.release_date}
+                                        </S.RecommendDate>
+                                        <S.RecommendSum>
+                                          {recomend.overview.slice(0, 100)}
+                                        </S.RecommendSum>
+                                      </>
+                                    )}
+                                  </S.RecommendInfo>
+                                </S.RecommendSlider>
+                              </S.RecommendMovie>
+                            ))}
+                          </S.RecommendWrap>
+                        </div>
+                      </div>
+                    </section>
+                  ) : null}
                 </S.DetailModal>
               </S.ModalDialog>
             </S.ModalContainer>

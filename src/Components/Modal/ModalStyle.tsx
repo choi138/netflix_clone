@@ -172,11 +172,11 @@ export const Title = styled.span`
 `;
 
 export const ModalFooter = styled.div`
-    /* border: 1px solid blueviolet; */
+    border: 1px solid blueviolet;
 `;
 
 export const ModalTitle = styled.h3`
-    /* border: 1px solid blue; */
+    border: 1px solid blue;
     font-size: 22px;
     font-weight: 600;
     color: #F2AA4C;

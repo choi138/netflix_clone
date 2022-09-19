@@ -130,7 +130,7 @@ function Modal({ movieDetail, movieClips, movieRecomendations, movieCredits }: I
                   </S.ModalSection>
                   <S.ModalSection>
                     <S.ModalFooter>
-                      <S.Title>CLIPS</S.Title>
+                      <S.ModalTitle>CLIPS</S.ModalTitle>
                       <S.ClipsWrap>
                         {movieClips?.map((clip: any, index: any, key: any) => (
                           <S.ClipUrl

@@ -45,14 +45,14 @@ function Modal({ movieDetail, movieClips, movieRecomendations, movieCredits }: I
       <AnimatePresence>
         {bigModalMatch ? (
           <>
+            {/* <S.Wrap> */}
             <S.Overlay
               exit={{ opacity: 0 }} // opacity는 투명도를 의미한다.
               animate={{ opacity: 1 }}
               initial={{ opacity: 0 }}
-              transition={{ type: "tween", duration: 0.3 }}
+              transition={{ type: "tween", duration: 0.8 }}
             />
-            <S.ModalContainer
-              onClick={onModalClose}>
+            <S.ModalContainer>
               <S.ModalDialog
                 exit={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
@@ -217,6 +217,7 @@ function Modal({ movieDetail, movieClips, movieRecomendations, movieCredits }: I
                 </S.DetailModal>
               </S.ModalDialog>
             </S.ModalContainer>
+            {/* </S.Wrap> */}
           </>
         ) : null}
       </AnimatePresence>

@@ -1,23 +1,31 @@
 import styled from "styled-components";
 import { AnimatePresence, motion } from "framer-motion";
 
+export const Wrap = styled(motion.div)`
+    width: 100%;
+    z-index: 80;
+`;
+
 export const Overlay = styled(motion.div)`
     /* border: 1px solid red; */
     position: fixed;
     top: 0;
+    min-width: 900px;
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.7);
     /* background-color: #101820; */
-    z-index: 100; 
+    z-index: 99; 
 `;
 
 export const ModalContainer = styled(motion.div)`
+    /* border: 1px solid blueviolet; */
     position: fixed;
     top: 0;
     right: 0;
     bottom: 0;
     left: 0;
+    min-width: 900px;
     width: 100%;
     height: 100%;
     z-index: 100;
@@ -322,7 +330,7 @@ export const RecommendSum = styled.div`
 `;
 
 export const RecommendMovie = styled.div`
-    border: 1px solid white;
+    /* border: 1px solid white; */
     height: 500px;
     position: relative;
     display: flex;

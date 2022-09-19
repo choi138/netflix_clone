@@ -16,13 +16,12 @@ function App() {
     <Router>
       <Header />
       <Routes>
-        <Route path="/search" element={<Search />} />  {/*검색을 위한 라우트*/}
         <Route path="/:part/:sliderPart/:id" element={<Home />} />
         {/* 영화들을 보여줄 home라우트 */}
-        <Route index element={<Home />} />
-        <Route path="/tv" element={<Tv />} />
-        <Route path="/movie" element={<Movie />} />
-        <Route path="/search" element={<Search />} />
+        <Route path="/netflix_clone/" element={<Home />} />
+        <Route path="/netflix_clone/tv" element={<Tv />} />
+        <Route path="/netflix_clone/movie" element={<Movie />} />
+        <Route path="/netflix_clone/search" element={<Search />} />
       </Routes>
     </Router>
   )

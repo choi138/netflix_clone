@@ -51,7 +51,8 @@ function Modal({ movieDetail, movieClips, movieRecomendations, movieCredits }: I
               initial={{ opacity: 0 }}
               transition={{ type: "tween", duration: 0.3 }}
             />
-            <S.ModalContainer>
+            <S.ModalContainer
+              onClick={onModalClose}>
               <S.ModalDialog
                 exit={{ opacity: 0 }}
                 animate={{ opacity: 1 }}

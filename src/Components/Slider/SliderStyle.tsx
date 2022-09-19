@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 
 export const SliderWrapper = styled.div`
   /* border: 1px solid red; */
+  overflow: hidden;
   margin-top: 30px;
   position: relative;
   padding: 0;

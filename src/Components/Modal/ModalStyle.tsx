@@ -289,7 +289,7 @@ export const RecommendInfo = styled(motion.div)`
     flex-direction: column;
     flex-wrap: wrap;
     background-color: #2f2f2f;
-    border: 1px solid red;
+    /* border: 1px solid red; */
     position: absolute;
     width: 100%;
     /* padding: 0 10px; */
@@ -303,21 +303,19 @@ export const RecommendTitle = styled.div`
     font-size: 16px;
     font-weight: 450;
     padding-top: 10px;
-    border: 1px solid red;
+    /* border: 1px solid red; */
 `;
 
 export const RecommendDate = styled.div`
     color: #46d369;
     font-weight: 500;
     /* margin-bottom: 10px; */
-    border: 1px solid red;
+    /* border: 1px solid red; */
     /* margin-left: 10px; */
 `;
 
 export const RecommendSum = styled.div`
-    position: absolute;
-    bottom: 0;
-    border: 1px solid red;
+    /* border: 1px solid red; */
     color: #d2d2d2;
     margin-bottom: 20px;
     /* margin-left: 10px; */

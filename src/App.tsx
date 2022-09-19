@@ -5,7 +5,7 @@ import Header from "./Components/Header/Header";
 import Modal from "./Components/Modal/Modal";
 import Home from "./Routes/Home/Home";
 import Search from "./Routes/Search";
-import Tv from "./Routes/Tv";
+import Tv from "./Routes/Tv/Tv";
 
 const GlobalStyle = createGlobalStyle`
 `;
@@ -21,7 +21,9 @@ function App() {
         <Route path="/:part/:sliderPart/:id" element={<Home />} />
         {/* 영화들을 보여줄 home라우트 */}
         <Route index element={<Home />} />
-        <Route path="*" element={<div>404 Not Found</div>} />
+        <Route path="/tv" element={<Tv />} />
+        <Route path="/movie" element={<Movie />} />
+        {/* <Route path="*" element={<div>404 Not Found</div>} /> */}
       </Routes>
     </Router>
   )

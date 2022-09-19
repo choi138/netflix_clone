@@ -75,7 +75,7 @@ function Header() {
                     <S.StyledLink to="/movie">
                         <S.Item>Movie{movieMatch && <S.Circle layoutId="circle" />}</S.Item>
                     </S.StyledLink>
-                    <S.StyledLink to="tv">
+                    <S.StyledLink to="/tv">
                         <S.Item>Tv Shows{tvMatch && <S.Circle layoutId="circle" />}</S.Item>
                     </S.StyledLink>
                 </S.Items>

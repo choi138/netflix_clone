@@ -107,6 +107,13 @@ export function getTvPopular() { // 인기있는 TV 프로그램 목록 가져�
     )
 }
 
+export function getTvToday() { // 오늘 방영하는 TV 프로그램 목록 가져오기
+    return (
+        fetch(`${BASE_PATH}/tv/airing_today?api_key=${API_KEY}`)
+            .then(reponse => reponse.json())
+    )
+}
+
 // Search Movie API
 export function findMovies(keyword: string | null) { // 영화 검색
     return fetch(`${BASE_PATH}/search/movie?api_key=${API_KEY}&query=${keyword}`)

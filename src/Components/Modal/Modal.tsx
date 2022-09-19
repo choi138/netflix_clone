@@ -1,20 +1,20 @@
 import { MdClose, MdPlayArrow } from "react-icons/md";
 import { PathMatch, useLocation, useMatch, useNavigate, useParams } from "react-router-dom"; // useMatch는 현재 url의 path를 가져온다.
 import { useRecoilState } from "recoil";
-import { IMovieRecommendations, IMovieDetail, ICast } from "../../Api/api";
+import { IMovieRecommendations, IMovieDetail, IMovieCredits, ICast } from "../../Api/api";
 import { makeImagePath } from "../../Api/utilities";
 import { modalState } from "../../atom";
 import * as S from "./ModalStyle";
 import TrailerVideo from "./Trailer/Trailer";
-import { AnimatePresence } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import { getYoutubeImg, getYoutubeVideoUrl } from "../../Api/utils";
 
 interface IModalData {
   children?: any;
   movieDetail: IMovieDetail;
   movieCredits: ICast[];
-  movieClips: [string];
-  movieRecomendations: IMovieRecommendations;
+  movieClips?: [string];
+  movieRecomendations?: IMovieRecommendations;
 }
 
 function Modal({ movieDetail, movieClips, movieRecomendations, movieCredits }: IModalData) {
@@ -29,8 +29,7 @@ function Modal({ movieDetail, movieClips, movieRecomendations, movieCredits }: I
   const onModalClose = () => {
     setIsModalActive(false);
     navigate(-1);
-  };
-
+  }
   const onModalOpen = (
     part: string | undefined,
     id: number,
@@ -38,9 +37,9 @@ function Modal({ movieDetail, movieClips, movieRecomendations, movieCredits }: I
   ) => {
     setIsModalActive(true);
     navigate(`/${part}/${sliderId}/${id}`);
-  };
+  }
 
-  const recommend = movieRecomendations?.results?.slice(0, 12);
+  const recommend = movieRecomendations?.results?.slice(0, 12)
   return (
     <>
       <AnimatePresence>
@@ -131,7 +130,7 @@ function Modal({ movieDetail, movieClips, movieRecomendations, movieCredits }: I
                   </S.ModalSection>
                   <S.ModalSection>
                     <S.ModalFooter>
-                      <S.ModalTitle>CLIPS</S.ModalTitle>
+                      <S.Title>CLIPS</S.Title>
                       <S.ClipsWrap>
                         {movieClips?.map((clip: any, index: any, key: any) => (
                           <S.ClipUrl
@@ -145,64 +144,11 @@ function Modal({ movieDetail, movieClips, movieRecomendations, movieCredits }: I
                                 <MdPlayArrow size="48px" />
                               </S.ClipIcon>
                             </S.ClipImg>
-                            <S.ClipInfo>
-                              <S.ClipTitle>{clip.name}</S.ClipTitle>
-                              <S.ClipDate>
-                                {new Date(
-                                  clip.published_at
-                                ).toLocaleDateString()}
-                              </S.ClipDate>
-                            </S.ClipInfo>
                           </S.ClipUrl>
                         ))}
                       </S.ClipsWrap>
                     </S.ModalFooter>
                   </S.ModalSection>
-                  {recommend ? (
-                    <section>
-                      <div>
-                        <S.ModalTitle>More like contents</S.ModalTitle>
-                        <div>
-                          <S.RecommendWrap>
-                            {recommend?.map((recomend: any) => (
-                              <S.RecommendMovie
-                                key={recomend.id}
-                                onClick={() =>
-                                  onModalOpen(part, recomend.id, id)
-                                }
-                              >
-                                <S.RecommendImg
-                                  src={makeImagePath(
-                                    recomend.poster_path,
-                                    "w500"
-                                  )}
-                                />
-                                <S.RecommendInfo>
-                                  {part === "movie" ? (
-                                    <>
-                                      <S.RecommendTitle>
-                                        {recomend.title}
-                                      </S.RecommendTitle>
-                                      <S.RecommendDate>
-                                        {recomend.release_date}
-                                      </S.RecommendDate>
-                                      <S.RecommendSum>
-                                        {recomend.overview.slice(0, 100)}
-                                      </S.RecommendSum>
-                                    </>
-                                  ) : (
-                                    <h4>
-                                      {recomend.name}
-                                    </h4>
-                                  )}
-                                </S.RecommendInfo>
-                              </S.RecommendMovie>
-                            ))}
-                          </S.RecommendWrap>
-                        </div>
-                      </div>
-                    </section>
-                  ) : null}
                 </S.DetailModal>
               </S.ModalDialog>
             </S.ModalContainer>

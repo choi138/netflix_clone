@@ -2,9 +2,14 @@ import styled from "styled-components";
 import { motion, useAnimation, useScroll } from "framer-motion";
 // Framer Motion은 직관적인 코드를 통해 손쉽게 애니메이션을 제작하게 해준다. 
 // useScroll는 스크롤을 감지하는것이다.
-import { useMatch } from "react-router-dom";
+import { useNavigate, useMatch } from "react-router-dom";
 import { useEffect, useState } from "react";
 import * as S from "./HeaderStyle";
+import { useForm } from "react-hook-form";
+
+interface IForm {
+    keyword: string;
+}
 
 function Header() {
     const [searchOpen, setSearchOpen] = useState(false);
@@ -49,6 +54,11 @@ function Header() {
             }
         });
     }, [scrollY, navAnimation]);
+    const navigate = useNavigate();
+    const { register, handleSubmit } = useForm<IForm>();
+    const onSearch = (data: IForm) => {
+        navigate(`/search?keyword=${data.keyword}`);
+    }
     return (
         <S.Nav
             variants={S.navVariants} // variants는 애니메이션을 정의하는 객체이다.
@@ -81,7 +91,7 @@ function Header() {
                 </S.Items>
             </S.Col>
             <S.Col>
-                <S.Search>
+                <S.Search onSubmit={handleSubmit(onSearch)}>
                     <motion.svg
                         onClick={toggleSearch}
                         animate={{ x: searchOpen ? -185 : 0 }} // searchOpen가 참일때 x축으로 100만큼 이동 아니면 -0으로 설정
@@ -97,6 +107,7 @@ function Header() {
                         ></path>
                     </motion.svg>
                     <S.Input
+                        {...register("keyword", { required: true, minLength: 3 })}
                         animate={inputAnimation} // 이 방법은 애니메이션을 실행시키는 또 하나의 방법이다.
                         // animate={{scaleX: searchOpen ? 1 : 0}} 
                         // searchOpen가 참일때 x축으로 100만큼 이동 아니면 -0으로 설정 이 방법은 애니메이션을 실행시키는 기본적인 방법이다.

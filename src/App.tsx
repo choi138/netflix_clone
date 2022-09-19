@@ -16,14 +16,13 @@ function App() {
     <Router>
       <Header />
       <Routes>
-        {/* <Route path="/:part/:sliderPart/:id" element={<Tv/>}/>  TV프로그램들을 위한 라우트 */}
         <Route path="/search" element={<Search />} />  {/*검색을 위한 라우트*/}
         <Route path="/:part/:sliderPart/:id" element={<Home />} />
         {/* 영화들을 보여줄 home라우트 */}
         <Route index element={<Home />} />
         <Route path="/tv" element={<Tv />} />
         <Route path="/movie" element={<Movie />} />
-        {/* <Route path="*" element={<div>404 Not Found</div>} /> */}
+        <Route path="/search" element={<Search />} />
       </Routes>
     </Router>
   )

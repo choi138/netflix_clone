@@ -37,7 +37,6 @@ function Home() {
   // const location = useLocation() // 현재 url의 path를 가져온다.
   // const {part,id} = useParams<"part"|"id">() // useParams는 url의 파라미터를 가져온다.
 
-  const navigate = useNavigate();
   const bigMovieMatch: PathMatch<string> | null = useMatch("/:part/:sliderPart/:id");
 
   const id = bigMovieMatch?.params.id;

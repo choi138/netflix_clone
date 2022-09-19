@@ -50,7 +50,7 @@ export const Item = styled.li`
     }
 `;
 
-export const Search = styled.span`
+export const Search = styled.form`
     color: white;
     display: flex;
     align-items: center;
@@ -88,25 +88,25 @@ export const Input = styled(motion.input)`
 
 export const logoVariants = {
     normal: {
-      fillOpacity: 1,
+        fillOpacity: 1,
     },
     active: {
-      fillOpacity: [0, 1, 0],
-      transition: {
-        repeat: Infinity,
-      },
+        fillOpacity: [0, 1, 0],
+        transition: {
+            repeat: Infinity,
+        },
     },
-  };
+};
 
 export const StyledLink = styled(Link)`
   text-decoration: none;
 `;
-  
+
 export const navVariants = {
-    top:{
+    top: {
         backgroundColor: 'rgba(0,0,0,0)'
     },
-    scroll:{
+    scroll: {
         backgroundColor: 'rgba(0,0,0,1)'
     }
 }

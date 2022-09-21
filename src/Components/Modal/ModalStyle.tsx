@@ -319,14 +319,14 @@ export const RecommendDate = styled.div`
     font-weight: 500;
     /* margin-bottom: 10px; */
     /* border: 1px solid red; */
-    /* margin-left: 10px; */
+    margin-left: 10px;
 `;
 
 export const RecommendSum = styled.div`
     /* border: 1px solid red; */
     color: #d2d2d2;
     margin-bottom: 20px;
-    /* margin-left: 10px; */
+    margin: 0 10px;
 `;
 
 export const RecommendMovie = styled.div`

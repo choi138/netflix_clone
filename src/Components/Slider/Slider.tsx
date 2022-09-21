@@ -48,6 +48,7 @@ const infoVariants = {
     }
 }
 
+// const offset = 1; // offset은 한번에 보여줄 슬라이드의 갯수를 의미한다.
 const offset = 6;
 interface IData {
     id: string;

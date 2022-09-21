@@ -75,17 +75,19 @@ export const Row = styled(motion.div)`
 `;
 
 export const Wrap = styled.div`
-/* border: 1px solid green; */
-  height: 400px;
+border: 1px solid green;
+  height: 200px;
+  min-height: 400px;
   position: relative;
   text-align: left;
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  width: 1600px;
+  width: 100%;
+  max-width: 1600px;
 `
 
-export const TopWrap = styled(Wrap)`
+export const TopWrap = styled(Wrap)`q
   height: 420px;
 `;
 

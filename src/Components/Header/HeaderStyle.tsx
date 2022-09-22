@@ -58,6 +58,7 @@ export const Search = styled.form`
     svg{
         height: 25px;
     }
+    cursor: pointer;
 `
 
 export const Circle = styled(motion.span)`
@@ -73,7 +74,7 @@ export const Circle = styled(motion.span)`
 `
 
 export const Input = styled(motion.input)` 
-    outline: 0;
+    outline: 0; 
     transform-origin: right center;
     position: absolute;
     right: 0px;
@@ -84,6 +85,7 @@ export const Input = styled(motion.input)`
     font-size: 16px;
     background-color: transparent;
     border: 1px solid ${(props) => props.theme.white.lighter};
+    caret-color: auto; // 커서 색상
 `;
 
 export const logoVariants = {

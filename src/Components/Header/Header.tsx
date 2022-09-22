@@ -92,9 +92,17 @@ function Header() {
             </S.Col>
             <S.Col>
                 <S.Search onSubmit={handleSubmit(onSearch)}>
+                    <S.Input
+                        type="any"
+                        {...register("keyword", { required: true, minLength: 2 })}
+                        animate={inputAnimation}
+                        initial={{ scaleX: 0 }}
+                        transition={{ type: "linear" }}
+                        placeholder="Search for..."
+                    />
                     <motion.svg
                         onClick={toggleSearch}
-                        animate={{ x: searchOpen ? -185 : 0 }} // searchOpen가 참일때 x축으로 100만큼 이동 아니면 -0으로 설정
+                        animate={{ x: searchOpen ? "-215px" : 0 }}
                         transition={{ type: "linear" }}
                         fill="currentColor"
                         viewBox="0 0 20 20"
@@ -106,15 +114,6 @@ function Header() {
                             clipRule="evenodd"
                         ></path>
                     </motion.svg>
-                    <S.Input
-                        {...register("keyword", { required: true, minLength: 3 })}
-                        animate={inputAnimation} // 이 방법은 애니메이션을 실행시키는 또 하나의 방법이다.
-                        // animate={{scaleX: searchOpen ? 1 : 0}} 
-                        // searchOpen가 참일때 x축으로 100만큼 이동 아니면 -0으로 설정 이 방법은 애니메이션을 실행시키는 기본적인 방법이다.
-                        initial={{ scaleX: 0 }}
-                        transition={{ type: "linear" }}
-                        placeholder="Search for movie or tv show"
-                    />
                 </S.Search>
             </S.Col>
         </S.Nav>

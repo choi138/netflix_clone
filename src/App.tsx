@@ -7,10 +7,6 @@ import Search from "./Routes/Search";
 import Tv from "./Routes/Tv/Tv";
 import Movie from "./Routes/Movie/Movie";
 
-const GlobalStyle = createGlobalStyle`
-`;
-
-
 function App() {
   return (
     <Router>

@@ -75,7 +75,7 @@ export const Row = styled(motion.div)`
 `;
 
 export const Wrap = styled.div`
-border: 1px solid green;
+/* border: 1px solid green; */
   height: 200px;
   min-height: 400px;
   position: relative;

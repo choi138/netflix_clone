@@ -54,7 +54,6 @@ export interface IMovieRecommendations { // 영화 +@TV 추천 목록 인터페�
     results: IMovie[]; // 영화 +@TV 목록
     total_pages: number; // 전체 페이지 수
     total_results: number; // 전체 결과 수
-
 };
 
 export interface ICast {
@@ -117,7 +116,7 @@ export function getTvPopular() { // 인기있는 TV 프로그램 목록 가져�
 
 export function getTvToday() { // 오늘 방영하는 TV 프로그램 목록 가져오기
     return (
-        fetch(`${BASE_PATH}/tv/airing_today?api_key=${API_KEY}`)
+        fetch(`${BASE_PATH}/tv/on_the_ai?api_key=${API_KEY}`)
             .then(reponse => reponse.json())
     )
 }

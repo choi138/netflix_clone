@@ -76,7 +76,7 @@ function Home() {
   const { data: credits } = useQuery<IMovieCredits>(["credits", id], () => // movieRecommend은 getRecommend의 data를 받아온다.
     getMovieCredits(part, id || "")
   );
-  const clips = getClips?.results?.slice(-3).reverse(); // clips는 movieClip의 results의 0번째부터 1번째까지의 데이터를 가져온다.
+  const clips = getClips?.results?.slice(-3).reverse(); // clips는 getClips를 3개만 가져온다.
   const isLoading = playingLoading || topRatedLoading || upcomingLoading || tvAiringLoading || tvPopularLoading || tvTopRatedLoading;
   // isLoading은 현재 상영중인 영화, 인기 영화, 개봉 예정 영화, 현재 방영중인 Tv, 인기 Tv가 모두 로딩이 끝나야 false가 된다.
 

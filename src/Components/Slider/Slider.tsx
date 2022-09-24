@@ -63,7 +63,7 @@ function Slider({ id, title, movies, part }: IData) {
     const [sliderMoving, setSliderMoving] = useState(false);
     const [sliderMovingPrev, setSliderMovingPrev] = useState(false);
 
-    const totalMovies = movies?.length - 1;
+    const totalMovies = movies?.length - 1; 
     const maxIndex = Math.floor(totalMovies / offset) - 1;
     // slider + 1
     const increaseIndex = () => {

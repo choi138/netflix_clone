@@ -43,9 +43,9 @@ function Home() {
   const part = bigMovieMatch?.params.part;
 
   // 영화
-  // 현재 상영중인 영화
-  const { data: nowPlayingMovies, isLoading: playingLoading } = // nowPlayingMovies는 getNowPlayingMovies의 data를 받아온다.
-    useQuery<IGetMoviesResult>(["nowPlaying", "movie"], getNowPlayingMovies);
+  /** asfd asfasfasdf*/
+  const { data: nowPlayingMovies, isLoading: playingLoading } = /** nowPlayingMovies는 getNowPlayingMovies의 data를 받아온다. */
+  useQuery<IGetMoviesResult>(["nowPlaying", "movie"], getNowPlayingMovies);
   // 인기 영화
   const { data: topRatedMovies, isLoading: topRatedLoading } = // topRatedMovies는 getTopRatedMovies의 data를 받아온다.
     useQuery<IGetMoviesResult>(["topRated", "movie"], getPopularMovies);

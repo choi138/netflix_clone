@@ -48,8 +48,8 @@ const infoVariants = {
     }
 }
 
-// const offset = 1; // offset은 한번에 보여줄 슬라이드의 갯수를 의미한다.
-const offset = 6;
+const offset = 1; // offset은 한번에 보여줄 슬라이드의 갯수를 의미한다.
+// const offset = 6;
 interface IData {
     id: string;
     title: string;
@@ -63,7 +63,7 @@ function Slider({ id, title, movies, part }: IData) {
     const [sliderMoving, setSliderMoving] = useState(false);
     const [sliderMovingPrev, setSliderMovingPrev] = useState(false);
 
-    const totalMovies = movies?.length - 1; 
+    const totalMovies = movies?.length - 15;
     const maxIndex = Math.floor(totalMovies / offset) - 1;
     // slider + 1
     const increaseIndex = () => {
@@ -79,7 +79,7 @@ function Slider({ id, title, movies, part }: IData) {
         if (!sliderMoving && movies) { // 만약 슬라이더가 움직이고 있지 않고 영화가 존재한다면
             setSliderMoving(false); // 슬라이더 움직임을 true로 변경
             setSliderMovingPrev(true); // 슬라이더 움직임을 true로 변경
-            setIndex((prev) => (prev === maxIndex ? prev - 1 : 0));
+            setIndex((prev) => (prev === maxIndex ? 0 : prev - 1));
         }
     }
     // slider done
@@ -102,26 +102,28 @@ function Slider({ id, title, movies, part }: IData) {
                     initial={false} // 초기값을 false로 설정
                     onExitComplete={onExitCompleteSlider} // 슬라이더가 사라지고 나서 실행할 함수
                 >
-                    <S.Row
-                        variants={rowVariants}
-                        initial="hidden" // 초기값을 hidden으로 설정
-                        animate="visible" // 실행될 애니메이션을 visible로 설정
-                        exit="exit" // 사라질 애니메이션을 exit로 설정
-                        custom={{ prev: sliderMoving }} // custom={{prev: sliderMoving}}는 슬라이더가 이전으로 움직이는지 다음으로 움직이는지를 알려준다.
-                        transition={{ type: "tween", duration: 0.6 }} // 애니메이션의 시간을 0.5로 설정;
-                        key={index} // key값을 index로 설정
-                    >
-                        {index === 0 ? null : (
-                            <S.ArrowBox onClick={decreaseIndex}>
-                                <MdKeyboardArrowLeft size="60px" />
-                            </S.ArrowBox>
-                        )}
-                        <S.RightArrow onClick={increaseIndex}>
-                            <MdKeyboardArrowRight size="60px" />
-                        </S.RightArrow>
-                        {movies
-                            ?.slice(1)
-                            .slice(offset * index, offset * index + offset).map((movie) => (
+                    {movies
+                        ?.slice(1) // slice(1)는 배열의 1번째부터 끝까지를 가져온다.
+                        .slice(offset * index, offset * index + offset).map((movie) => ( //
+                            <S.Row
+                                bgPhoto={makeImagePath(movie.backdrop_path)}
+                                variants={rowVariants}
+                                initial="hidden" // 초기값을 hidden으로 설정
+                                animate="visible" // 실행될 애니메이션을 visible로 설정
+                                exit="exit" // 사라질 애니메이션을 exit로 설정
+                                custom={{ prev: sliderMoving }} // custom={{prev: sliderMoving}}는 슬라이더가 이전으로 움직이는지 다음으로 움직이는지를 알려준다.
+                                transition={{ type: "tween", duration: 0.6 }} // 애니메이션의 시간을 0.5로 설정;
+                                key={index} // key
+                            >
+                                {index === 0 ? null : (
+                                    <S.ArrowBox onClick={decreaseIndex}>
+                                        <MdKeyboardArrowLeft size="60px" />
+                                    </S.ArrowBox>
+                                )}
+                                <S.RightArrow onClick={increaseIndex}>
+                                    <MdKeyboardArrowRight size="60px" />
+                                </S.RightArrow>
+
                                 <S.MovieBox
                                     variants={movieBoxVariants}
                                     initial="normal"
@@ -130,7 +132,7 @@ function Slider({ id, title, movies, part }: IData) {
                                     onClick={() => { onBoxClick(part, movie.id, id) }}
                                     key={movie.id}
                                 >
-                                    <img src={makeImagePath(movie.poster_path, "w500")} />
+                                    {/* <img src={makeImagePath(movie.backdrop_path, "w500")} /> */}
                                     <S.MovieBoxInfo variants={infoVariants}>
                                         {part === "movie" ? (
                                             <S.Moviename>{movie.title}</S.Moviename>
@@ -139,8 +141,9 @@ function Slider({ id, title, movies, part }: IData) {
                                         )}
                                     </S.MovieBoxInfo>
                                 </S.MovieBox>
-                            ))}
-                    </S.Row>
+                            </S.Row>
+                        ))}
+
                 </AnimatePresence>
             </S.Wrap>
         </S.SliderWrapper>

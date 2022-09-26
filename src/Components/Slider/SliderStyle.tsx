@@ -61,11 +61,7 @@ export const ArrowBox = styled(motion.span)`
   }
 `;
 
-export const Row = styled(motion.div) <{ bgPhoto: string }>`
-  background-image: url(${(props) => props.bgPhoto});
-  background-size: cover;
-  height: 500px;
-  border: 1px solid red;
+export const Row = styled(motion.div)`
   padding: 0 30px;
   padding-top: 20px;
   justify-content: center;  
@@ -97,10 +93,8 @@ export const TopWrap = styled(Wrap)`
 
 
 export const MovieBox = styled(motion.div)`
-width: 100%;
-  background-size: cover;
   padding: 10px;
-  border: 1px solid red;
+  /* border: 1px solid red; */
     &:first-child {
     transform-origin: center left;
   }

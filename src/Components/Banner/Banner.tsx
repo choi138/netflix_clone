@@ -38,7 +38,7 @@ function Banner({ id, part, movies }: IBanner) {
                             </S.TitleWrapper>
                             <S.InfoWrapper>
                                 <S.Info>
-                                    <S.InfoFristText>{part === "movie" ? movie?.release_date : movie?.first_air_date}</S.InfoFristText>
+                                    <S.InfoFristText>{part === "movie" ? movie?.release_date.slice(0, 4) : movie?.first_air_date}</S.InfoFristText>
                                     <S.InfoSecondText>{movie?.vote_average}</S.InfoSecondText>
                                 </S.Info>
                                 <S.InfoSummary>

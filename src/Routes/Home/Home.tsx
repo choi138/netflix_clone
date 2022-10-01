@@ -100,7 +100,7 @@ function Home() {
                 id="nowPlayingData"
                 movies={nowPlayingMovies?.results ?? []}
                 title="Now Playing(movie)"
-                query="nowPlayingMovies"
+                query="nowPlayingMovies" //
                 part="movie"
               ></Slider>
               <Slider

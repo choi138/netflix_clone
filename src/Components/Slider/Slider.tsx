@@ -141,3 +141,4 @@ function Slider({ id, title, movies, part }: IData) {
 };
 
 export default Slider;
+

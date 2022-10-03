@@ -54,7 +54,7 @@ export const ArrowBox = styled(motion.span)`
   svg {
     color: white;
     transition: all 0.1s ease;
-    opacity: 0;
+    opacity: 0.3;
   }
   &:hover svg {
     color: #F2AA4C;

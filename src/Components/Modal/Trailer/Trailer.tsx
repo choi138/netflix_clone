@@ -32,9 +32,9 @@ function TrailerVideo({ part, id }: IGetTrailer) {
             const trailer = results.filter( // filter는 배열의 요소를 필터링한다.
                 (result: IVideo) => result.type === "Trailer" // type이 Trailer인 요소만 필터링한다.
             );
-            const randomVideo =
+            const randomVideo = // randomVideo는 랜덤으로 선택된 비디오이다.
                 trailer[Math.ceil(Math.random() * trailer.length - 1)]; // Math.ceil은 소수점을 올림한다. Math.random은 0~1사이의 랜덤한 숫자를 반환한다.
-            const videoKey = randomVideo?.key; // key는 비디오의 고유한 id이다.
+            const videoKey = randomVideo?.key; // videoKey는 랜덤으로 선택된 비디오의 key이다.
             setVideoKey(videoKey);
         })();
     }, [id])

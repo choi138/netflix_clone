@@ -166,7 +166,7 @@ export const Cast = styled.span`
 
 export const Genres = styled.span``;
 
-export const Genre = styled(Cast)`  
+export const Genre = styled.span`  
 `;
 
 export const Rating = styled(Cast)`

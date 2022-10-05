@@ -22,7 +22,7 @@ function Modal({ movieDetail, movieClips, movieRecomendations, movieCredits }: I
   const part = bigModalMatch?.params.part;
   const id = bigModalMatch?.params.id;
   const sliderPart = bigModalMatch?.params.sliderPart;
-  const navigate = useNavigate();
+  const navigate = useNavigate(); // useNavigate는 url을 변경할 수 있다.
 
   const [isModalActive, setIsModalActive] = useRecoilState(modalState);
 
